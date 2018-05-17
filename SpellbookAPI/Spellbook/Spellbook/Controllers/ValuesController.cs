@@ -4,15 +4,20 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Spellbook.DataContext;
+using Spellbook.Models;
 
 namespace Spellbook.Controllers
 {
     public class ValuesController : ApiController
     {
+        private readonly spellbookDbContext _context = new spellbookDbContext();
+
+
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<Spell> Get()
         {
-            return new string[] { "value1", "value2" };
+            return _context.Spells;
         }
 
         // GET api/values/5

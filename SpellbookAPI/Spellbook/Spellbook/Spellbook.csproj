@@ -262,6 +262,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Spellbook.DataContext\Spellbook.DataContext.csproj">
+      <Project>{bb662546-e1e9-495b-9612-b9cae76e29d4}</Project>
+      <Name>Spellbook.DataContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spellbook.Models\Spellbook.Models.csproj">
+      <Project>{73547e0d-5f94-4394-95a6-1a2bd9333179}</Project>
+      <Name>Spellbook.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spellbook.Services\Spellbook.Services.csproj">
+      <Project>{76cc161e-d166-4d2a-9954-77690e020cc1}</Project>
+      <Name>Spellbook.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
