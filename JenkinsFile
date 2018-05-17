@@ -1,0 +1,20 @@
+node('master') {
+    stage('import') {
+        git 'https://github.com/1804-Apr-USFdotnet/spellbook.git'
+    }
+    stage('build') {
+        
+    }
+    stage('test') {
+        
+    }
+    stage('analyze') {
+        
+    }
+    stage('package') {
+        
+    }
+    stage('deploy') {
+        
+    }
+}
