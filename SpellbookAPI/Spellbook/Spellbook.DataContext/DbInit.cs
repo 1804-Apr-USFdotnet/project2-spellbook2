@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Spellbook.DataContext
 {
-    class DbInit : CreateDatabaseIfNotExists<spellbookDbContext>
+    class DbInit : CreateDatabaseIfNotExists<SpellbookDbContext>
     {
-        protected override void Seed(spellbookDbContext context)
+        protected override void Seed(SpellbookDbContext context)
         {
             base.Seed(context);
             context.SaveChanges();
