@@ -6,18 +6,17 @@ using System.Net.Http;
 using System.Web.Http;
 using Spellbook.DataContext;
 using Spellbook.Models;
+using Spellbook.Services;
 
 namespace Spellbook.Controllers
 {
     public class ValuesController : ApiController
     {
-        private readonly spellbookDbContext _context = new spellbookDbContext();
-
-
+        private readonly SpellbookService _Service = new SpellbookService();
         // GET api/values
         public IEnumerable<Spell> Get()
         {
-            return _context.Spells;
+            return _Service.GetAllSpells();
         }
 
         // GET api/values/5
