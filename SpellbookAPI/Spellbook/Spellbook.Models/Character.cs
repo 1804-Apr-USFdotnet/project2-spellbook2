@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Spellbook.Models
+namespace SpellbookAPI.Models
 {
     public class Character
     {

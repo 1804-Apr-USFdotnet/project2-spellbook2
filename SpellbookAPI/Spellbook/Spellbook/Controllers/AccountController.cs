@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 
-using Spellbook.Models;
+using SpellbookAPI.Models;
 
 namespace Spellbook.Controllers
 {
