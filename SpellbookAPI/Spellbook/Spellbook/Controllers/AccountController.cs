@@ -26,6 +26,11 @@ namespace Spellbook.Controllers
 		[HttpPost]
 		public IHttpActionResult LogIn(User user)
 		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest();
+			}
+
 			return Ok();
 		}
 
