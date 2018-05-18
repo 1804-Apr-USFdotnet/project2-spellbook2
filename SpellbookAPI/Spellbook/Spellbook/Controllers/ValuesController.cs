@@ -5,9 +5,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Text.RegularExpressions;
-using SpellbookAPI.DataContext;
-using SpellbookAPI.Models;
-using SpellbookAPI.Services;
+using Spellbook.DataContext;
+using Spellbook.Models;
+using Spellbook.Services;
 
 using System.Diagnostics;
 

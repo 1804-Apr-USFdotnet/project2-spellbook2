@@ -11,21 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositorie
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{B3BEDC0E-1AE3-4390-8CB2-AEC73BCB29AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellbookAPI.Models", "Spellbook.Models\SpellbookAPI.Models.csproj", "{73547E0D-5F94-4394-95A6-1A2BD9333179}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellbook.Models", "Spellbook.Models\Spellbook.Models.csproj", "{73547E0D-5F94-4394-95A6-1A2BD9333179}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellbookAPI.Repositories", "Spellbook.Repositories\SpellbookAPI.Repositories.csproj", "{78260335-BB69-4477-8D7E-7B4699BC3EDA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellbook.Repositories", "Spellbook.Repositories\Spellbook.Repositories.csproj", "{78260335-BB69-4477-8D7E-7B4699BC3EDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellbookAPI.Services", "Spellbook.Services\SpellbookAPI.Services.csproj", "{76CC161E-D166-4D2A-9954-77690E020CC1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellbook.Services", "Spellbook.Services\Spellbook.Services.csproj", "{76CC161E-D166-4D2A-9954-77690E020CC1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{8389821D-4DD3-4E82-8A5A-0273EC5C6B80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataContext", "DataContext", "{6C1A7D96-26A6-426C-BDB8-3FB20C0FCE3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellbookAPI.DataContext", "Spellbook.DataContext\SpellbookAPI.DataContext.csproj", "{BB662546-E1E9-495B-9612-B9CAE76E29D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellbook.DataContext", "Spellbook.DataContext\Spellbook.DataContext.csproj", "{BB662546-E1E9-495B-9612-B9CAE76E29D4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{99C347D7-B616-4F82-AEE2-7DF26D90869B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpellbookAPI.Tests", "Spellbook.Tests\SpellbookAPI.Tests.csproj", "{832C4040-FA92-41C2-8604-C700690DB291}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spellbook.Tests", "Spellbook.Tests\Spellbook.Tests.csproj", "{832C4040-FA92-41C2-8604-C700690DB291}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

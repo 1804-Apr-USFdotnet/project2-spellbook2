@@ -1,4 +1,4 @@
-﻿namespace SpellbookAPI.Models
+﻿namespace Spellbook.Models
 {
     public class SpellbookSpells
     {

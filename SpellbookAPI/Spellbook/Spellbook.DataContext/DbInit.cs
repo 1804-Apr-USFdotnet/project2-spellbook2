@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SpellbookAPI.DataContext
+namespace Spellbook.DataContext
 {
     class DbInit : CreateDatabaseIfNotExists<SpellbookDbContext>
     {
