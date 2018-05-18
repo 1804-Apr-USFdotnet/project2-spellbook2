@@ -24,7 +24,7 @@ namespace Spellbook.Services
             return _spells.FindBy(predicate).FirstOrDefault();
         }
 
-        public Spell GetSpellBy(string str)
+        public Spell GetSpellBy(string queryString, string filter)
         {
             throw new NotImplementedException();
             HashSet<int> levels;
