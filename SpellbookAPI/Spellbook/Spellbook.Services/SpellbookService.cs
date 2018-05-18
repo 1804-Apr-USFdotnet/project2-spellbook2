@@ -27,6 +27,8 @@ namespace Spellbook.Services
         public Spell GetSpellBy(string str)
         {
             throw new NotImplementedException();
+            HashSet<int> levels;
+            Expression<Func<Spell, bool>> predicate = (x => levels.Contains(x.Level));
         }
     }
 }
