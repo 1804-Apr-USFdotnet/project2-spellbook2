@@ -5,7 +5,7 @@ namespace Spellbook.DataContext
 {
     public class SpellbookDbContext : DbContext
     {
-        public spellbookDbContext() : base("name=SpellBookContext")
+        public SpellbookDbContext() : base("name=SpellBookContext")
         {
             Database.SetInitializer<SpellbookDbContext>(new DbInit());
         }
