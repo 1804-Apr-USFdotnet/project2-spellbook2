@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using Spellbook.Models;
@@ -15,6 +16,17 @@ namespace Spellbook.Services
         public IQueryable<Spell> GetAllSpells()
         {
             return _spells.GetAll();
+        }
+
+        public Spell GetSpellBy(int id )
+        {
+            Expression<Func<Spell, bool>> predicate = (x => x.SpellId == id);
+            return _spells.FindBy(predicate).FirstOrDefault();
+        }
+
+        public Spell GetSpellBy(string str)
+        {
+            throw new NotImplementedException();
         }
     }
 }

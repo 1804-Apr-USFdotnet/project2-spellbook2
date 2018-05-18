@@ -2,6 +2,7 @@
 using System.Linq;
 using Spellbook.DataContext;
 using System.Data.Entity;
+using System.Linq.Expressions;
 using Spellbook.Models;
 
 namespace Spellbook.Repositories
@@ -17,7 +18,7 @@ namespace Spellbook.Repositories
             return query;
         }
 
-        public IQueryable<T> FindBy(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
 
             IQueryable<T> query = _context.Set<T>().Where(predicate);

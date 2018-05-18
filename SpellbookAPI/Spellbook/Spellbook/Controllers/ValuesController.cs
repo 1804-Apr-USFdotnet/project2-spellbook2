@@ -20,9 +20,9 @@ namespace Spellbook.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public Spell Get(int id)
         {
-            return "value";
+            return _Service.GetSpellBy(id);
         }
 
         // POST api/values

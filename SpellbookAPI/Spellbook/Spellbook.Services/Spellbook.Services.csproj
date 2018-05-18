@@ -47,12 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="SpellbookService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Spellbook.DataContext\Spellbook.DataContext.csproj">
+      <Project>{bb662546-e1e9-495b-9612-b9cae76e29d4}</Project>
+      <Name>Spellbook.DataContext</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spellbook.Models\Spellbook.Models.csproj">
+      <Project>{73547e0d-5f94-4394-95a6-1a2bd9333179}</Project>
+      <Name>Spellbook.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spellbook.Repositories\Spellbook.Repositories.csproj">
+      <Project>{78260335-bb69-4477-8d7e-7b4699bc3eda}</Project>
+      <Name>Spellbook.Repositories</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
