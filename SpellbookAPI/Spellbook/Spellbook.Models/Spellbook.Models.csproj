@@ -51,6 +51,7 @@
     <Compile Include="Spell.cs" />
     <Compile Include="Spellbook.cs" />
     <Compile Include="SpellbookSpells.cs" />
+    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
