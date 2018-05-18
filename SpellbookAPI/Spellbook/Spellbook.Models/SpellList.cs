@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Spellbook.Models
 {
-    public class Spellbook
+    public class SpellList
     {
         [Key]
-        public int SpellbookId { get; set; }
+        public int SpellListId { get; set; }
 
         public string Name { get; set; }
 
-        public virtual ICollection<SpellbookSpells> Spells { get; set; }
+        public virtual ICollection<SpellListSpells> Spells { get; set; }
     }
 }
