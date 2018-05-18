@@ -5,15 +5,19 @@ using System.Web;
 using System.Web.Http;
 
 using Spellbook.Models;
+using Spellbook.DataContext;
 
 namespace Spellbook.Controllers
 {
 	public class AccountController : ApiController
 	{
 		[HttpPost]
+		[Route()]
+		[AllowAnonymous]
 		public IHttpActionResult CreateAccount(User new_user)
 		{
-			// placeholder
+			// get db context
+			SpellbookDbContext db = new SpellbookDbContext();
 			return Ok();
 		}
 
