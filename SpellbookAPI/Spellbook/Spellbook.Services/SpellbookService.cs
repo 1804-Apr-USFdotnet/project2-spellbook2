@@ -12,6 +12,7 @@ namespace Spellbook.Services
     public class SpellbookService
     {
         private readonly SpellRepository _spells = new SpellRepository();
+        private readonly CharacterRepository _characters = new CharacterRepository(); // I think??
 
         public IQueryable<Spell> GetAllSpells()
         {
@@ -25,6 +26,16 @@ namespace Spellbook.Services
         }
 
         public Spell GetSpellBy(string str)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Character GetCharacterBy(int id) //Caitlin Was Here
+        {
+            Expression<Func<Character, bool>> predicate = (x => x.CharacterId == id);
+            return _characters.FindBy(predicate).FirstOrDefault();
+        }
+        public Character GetCharacterBy(string str)
         {
             throw new NotImplementedException();
         }
