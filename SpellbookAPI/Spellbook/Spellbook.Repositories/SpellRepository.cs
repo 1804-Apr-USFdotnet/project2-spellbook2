@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Spellbook.DataContext;
 using Spellbook.Models;
 
-namespace Spellbook.Repositories
+namespace Spellbook.Repositories 
 {
     public class SpellRepository : ARepository<SpellbookDbContext, Spell>
     {
