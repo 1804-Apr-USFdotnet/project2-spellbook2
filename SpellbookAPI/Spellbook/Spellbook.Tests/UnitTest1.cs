@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SpellbookAPI.Tests
+namespace Spellbook.Tests
 {
     [TestClass]
     public class UnitTest1

@@ -1,8 +1,8 @@
 ﻿using System;
-using SpellbookAPI.DataContext;
-using SpellbookAPI.Models;
+using Spellbook.DataContext;
+using Spellbook.Models;
 
-namespace SpellbookAPI.Repositories
+namespace Spellbook.Repositories
 {
    public class CharacterRepository: Repository<SpellbookDbContext, Character>
    {

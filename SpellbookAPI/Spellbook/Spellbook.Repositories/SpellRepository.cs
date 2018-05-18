@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SpellbookAPI.DataContext;
-using SpellbookAPI.Models;
+using Spellbook.DataContext;
+using Spellbook.Models;
 
-namespace SpellbookAPI.Repositories 
+namespace Spellbook.Repositories 
 {
     public class SpellRepository : Repository<SpellbookDbContext, Spell>
     {

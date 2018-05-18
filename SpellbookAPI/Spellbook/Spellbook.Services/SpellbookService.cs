@@ -4,10 +4,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using SpellbookAPI.Models;
-using SpellbookAPI.Repositories;
+using Spellbook.Models;
+using Spellbook.Repositories;
 
-namespace SpellbookAPI.Services
+namespace Spellbook.Services
 {
     public class SpellbookService
     {
