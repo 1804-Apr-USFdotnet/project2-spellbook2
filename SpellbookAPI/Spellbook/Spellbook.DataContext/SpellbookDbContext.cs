@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using Spellbook.Models;
+using SpellbookAPI.Models;
 
-namespace Spellbook.DataContext
+namespace SpellbookAPI.DataContext
 {
     public class SpellbookDbContext : DbContext
     {

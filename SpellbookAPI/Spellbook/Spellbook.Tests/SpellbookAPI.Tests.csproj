@@ -7,8 +7,8 @@
     <ProjectGuid>{832C4040-FA92-41C2-8604-C700690DB291}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Spellbook.Tests</RootNamespace>
-    <AssemblyName>Spellbook.Tests</AssemblyName>
+    <RootNamespace>SpellbookAPI.Tests</RootNamespace>
+    <AssemblyName>SpellbookAPI.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
-using Spellbook.DataContext;
+using SpellbookAPI.DataContext;
 using System.Data.Entity;
 using System.Linq.Expressions;
-using Spellbook.Models;
+using SpellbookAPI.Models;
 
-namespace Spellbook.Repositories
+namespace SpellbookAPI.Repositories
 {
     public abstract class Repository<C, T> :
         IRepository<T> where T : class where C : SpellbookDbContext, new()

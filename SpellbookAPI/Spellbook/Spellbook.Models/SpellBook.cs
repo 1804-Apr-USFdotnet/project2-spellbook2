@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Spellbook.Models
+namespace SpellbookAPI.Models
 {
     public class Spellbook
     {
