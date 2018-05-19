@@ -62,4 +62,4 @@ namespace Spellbook.Services
         }
     }
 }
-}
+
