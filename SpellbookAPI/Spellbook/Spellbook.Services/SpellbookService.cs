@@ -26,11 +26,10 @@ namespace Spellbook.Services
 
         public IEnumerable<Spell> GetSpellBy(string queryString, string filter)
         {
-            Expression<Func<Spell, bool>> predicate;
-            QueryStringService queryHelper = new QueryStringService(queryString);
-
             try
             {
+                Expression<Func<Spell, bool>> predicate;
+                QueryStringService queryHelper = new QueryStringService(queryString);
                 switch (filter)
                 {
                     case "levels":
