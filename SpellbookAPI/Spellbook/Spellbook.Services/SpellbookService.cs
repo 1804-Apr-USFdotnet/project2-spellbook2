@@ -24,8 +24,13 @@ namespace Spellbook.Services
 
         public Spell GetSpellBy(string queryString, string filter)
         {
-
-            
+            Expression<Func<Spell, bool>> predicate;
+            QueryStringService queryHelper = new QueryStringService(queryString);
+            if (filter == "levels")
+            {
+                queryHelper.intPredicate(out predicate);
+                return _spells.FindBy(predicate).FirstOrDefault();
+            }
         }
     }
 }
