@@ -2,8 +2,10 @@
 using Spellbook.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Web;
 
 namespace Spellbook.Services
 {
@@ -16,21 +18,48 @@ namespace Spellbook.Services
             return _spells.GetAll();
         }
 
-        public Spell GetSpellBy(int id )
+        public Spell GetSpellBy(int id)
         {
             Expression<Func<Spell, bool>> predicate = (x => x.SpellId == id);
             return _spells.FindBy(predicate).FirstOrDefault();
         }
 
-        public Spell GetSpellBy(string queryString, string filter)
+        public IEnumerable<Spell> GetSpellBy(string queryString, string filter)
         {
             Expression<Func<Spell, bool>> predicate;
             QueryStringService queryHelper = new QueryStringService(queryString);
-            if (filter == "levels")
+
+            try
             {
-                queryHelper.intPredicate(out predicate);
-                return _spells.FindBy(predicate).FirstOrDefault();
+                switch (filter)
+                {
+                    case "levels":
+                    {
+                        queryHelper.IntPredicate(out predicate);
+                        return _spells.FindBy(predicate);
+                    }
+                    case "classes":
+                    {
+                        queryHelper.StringPredicate(filter, out predicate);
+                        return _spells.FindBy(predicate);
+                    }
+                    case "schools":
+                    {
+                        queryHelper.StringPredicate(filter, out predicate);
+                        return _spells.FindBy(predicate);
+                    }
+                    default:
+                    {
+                        throw new SystemException();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
             }
         }
     }
+}
 }

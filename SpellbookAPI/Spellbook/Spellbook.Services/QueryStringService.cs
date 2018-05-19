@@ -45,7 +45,7 @@ namespace Spellbook.Services
                 }
             }
         }
-        public void intPredicate( out Expression<Func<Spell, bool>> predicate)
+        public void IntPredicate( out Expression<Func<Spell, bool>> predicate)
         {
             string[] querySplit = _queryString.Split(',');
             HashSet<int> levels = new HashSet<int>();
