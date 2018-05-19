@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Spellbook.Models;
+using Spellbook.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Spellbook.Models;
-using Spellbook.Repositories;
 
 namespace Spellbook.Services
 {
@@ -26,9 +24,8 @@ namespace Spellbook.Services
 
         public Spell GetSpellBy(string queryString, string filter)
         {
-            throw new NotImplementedException();
-            HashSet<int> levels;
-            Expression<Func<Spell, bool>> predicate = (x => levels.Contains(x.Level));
+
+            
         }
     }
 }
