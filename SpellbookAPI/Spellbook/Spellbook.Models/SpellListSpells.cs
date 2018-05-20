@@ -1,9 +1,9 @@
 ﻿namespace Spellbook.Models
 {
-    public class SpellbookSpells
+    public class SpellListSpells
     {
-        public int SpellbookId { get; set; }
-        public Spellbook Spellbook { get; set; }
+        public int SpellListId { get; set; }
+        public SpellList SpellList { get; set; }
 
         public int SpellId { get; set; }
         public Spell Spell { get; set; }

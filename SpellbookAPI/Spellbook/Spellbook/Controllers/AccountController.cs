@@ -9,7 +9,6 @@ using System.Net.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
-
 using Spellbook.Models;
 using Spellbook.DataContext;
 
@@ -42,6 +41,11 @@ namespace Spellbook.Controllers
 		[HttpPost]
 		public IHttpActionResult LogIn(User user)
 		{
+			if (!ModelState.IsValid)
+			{
+				return BadRequest();
+			}
+
 			return Ok();
 		}
 
