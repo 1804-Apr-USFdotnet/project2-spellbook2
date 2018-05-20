@@ -6,10 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Text.RegularExpressions;
 using Spellbook.DataContext;
+using System.Diagnostics;
 using Spellbook.Models;
 using Spellbook.Services;
-
-using System.Diagnostics;
 
 namespace Spellbook.Controllers
 {

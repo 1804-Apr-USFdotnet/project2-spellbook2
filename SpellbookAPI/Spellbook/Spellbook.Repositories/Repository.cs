@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
-using Spellbook.DataContext;
 using System.Data.Entity;
 using System.Linq.Expressions;
+using Spellbook.DataContext;
 using Spellbook.Models;
 
 namespace Spellbook.Repositories
