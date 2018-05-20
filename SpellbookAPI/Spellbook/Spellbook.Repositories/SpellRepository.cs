@@ -11,9 +11,5 @@ namespace Spellbook.Repositories
 {
     public class SpellRepository : Repository<SpellbookDbContext, Spell>
     {
-        public object FindBy(Expression<Func<Character, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

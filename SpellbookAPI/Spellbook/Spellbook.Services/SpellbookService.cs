@@ -12,7 +12,7 @@ namespace Spellbook.Services
     public class SpellbookService
     {
         private readonly SpellRepository _spells = new SpellRepository();
-        private readonly CharacterRepository _characters = new CharacterRepository(); // I think??
+        private readonly CharacterRepository _characters = new CharacterRepository(); 
 
         public IQueryable<Spell> GetAllSpells()
         {
