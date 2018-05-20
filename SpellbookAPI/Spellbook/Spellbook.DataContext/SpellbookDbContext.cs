@@ -12,5 +12,7 @@ namespace Spellbook.DataContext
 
         public DbSet<Spell> Spells { get; set; }
         public DbSet<Character> Characters { get; set; }
+        public DbSet<SpellListSpells> SpellListSpellAssociations{ get; set; }
+        public DbSet<SpellList> SpellLists { get; set; }
     }
 }

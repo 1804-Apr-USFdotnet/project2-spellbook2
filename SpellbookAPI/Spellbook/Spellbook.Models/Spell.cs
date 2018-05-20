@@ -43,6 +43,6 @@ namespace Spellbook.Models
 
 		public int? ClassesAsInt { get; set; }
 
-		public virtual ICollection<SpellbookSpells> Spellbooks { get; set; }
+		public virtual ICollection<SpellListSpells> Spellbooks { get; set; }
 	}
 }
