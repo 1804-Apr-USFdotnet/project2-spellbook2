@@ -2,6 +2,7 @@
 using Spellbook.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
@@ -11,6 +12,8 @@ namespace Spellbook.Services
     public class SpellbookService
     {
         private readonly SpellRepository _spells = new SpellRepository();
+        private readonly SpellListRepository _spellLists = new SpellListRepository();
+        private readonly SpellListSpellsRepository _spellListsSpells = new SpellListSpellsRepository();
 
         public IQueryable<Spell> GetAllSpells()
         {
@@ -57,6 +60,11 @@ namespace Spellbook.Services
                 Debug.WriteLine(ex);
                 throw;
             }
+        }
+
+        public SpellList GetSpellListBy(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
