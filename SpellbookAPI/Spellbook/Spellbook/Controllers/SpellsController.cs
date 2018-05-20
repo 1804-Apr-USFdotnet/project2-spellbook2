@@ -11,18 +11,39 @@ namespace Spellbook.Controllers
 {
     public class SpellsController : ApiController
     {
-        private readonly SpellbookService _Service = new SpellbookService();
+        private readonly SpellbookService _service = new SpellbookService();
         // GET api/values
-        public IEnumerable<Spell> Get()
+        public IHttpActionResult Get()
         {
-            return _Service.GetAllSpells();
+            return Ok(_service.GetAllSpells());
         }
 
         // GET api/values/5
-        public Spell Get(int id)
+        public IHttpActionResult Get(int id)
         {
             //comment
-            return _Service.GetSpellBy(id);
+            return Ok(_service.GetSpellBy(id));
+        }
+
+        public IHttpActionResult Get(string queryString, string filter)
+        {
+            string[] availableFilters = { "levels", "classes", "schools" };
+            try
+            {
+                if (!availableFilters.Contains(filter))
+                {
+                    return BadRequest("Your filter was inccorect! :(");
+                }
+                else
+                {
+                    return Ok(_service.GetSpellBy(queryString, filter));
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
