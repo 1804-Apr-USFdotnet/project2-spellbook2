@@ -50,9 +50,9 @@
     <Compile Include="CharacterRepository.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository.cs" />
     <Compile Include="SpellListRepository.cs" />
     <Compile Include="SpellListSpellsRepository.cs" />
+    <Compile Include="ARepository.cs" />
     <Compile Include="SpellRepository.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,12 +1,11 @@
-﻿using System;
+﻿using Spellbook.Models;
+using Spellbook.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using Spellbook.Models;
-using Spellbook.Repositories;
 
 namespace Spellbook.Services
 {
@@ -21,15 +20,46 @@ namespace Spellbook.Services
             return _spells.GetAll();
         }
 
-        public Spell GetSpellBy(int id )
+        public Spell GetSpellBy(int id)
         {
             Expression<Func<Spell, bool>> predicate = (x => x.SpellId == id);
             return _spells.FindBy(predicate).FirstOrDefault();
         }
 
-        public Spell GetSpellBy(string str)
+        public IEnumerable<Spell> GetSpellBy(string queryString, string filter)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Expression<Func<Spell, bool>> predicate;
+                QueryStringService queryHelper = new QueryStringService(queryString);
+                switch (filter)
+                {
+                    case "levels":
+                    {
+                        queryHelper.IntPredicate(out predicate);
+                        return _spells.FindBy(predicate);
+                    }
+                    case "classes":
+                    {
+                        queryHelper.StringPredicate(filter, out predicate);
+                        return _spells.FindBy(predicate);
+                    }
+                    case "schools":
+                    {
+                        queryHelper.StringPredicate(filter, out predicate);
+                        return _spells.FindBy(predicate);
+                    }
+                    default:
+                    {
+                        throw new SystemException();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                throw;
+            }
         }
 
         public SpellList GetSpellListBy(int id)
@@ -38,3 +68,4 @@ namespace Spellbook.Services
         }
     }
 }
+

@@ -3,7 +3,7 @@ using Spellbook.Models;
 
 namespace Spellbook.Repositories
 {
-    public class SpellListSpellsRepository : Repository<SpellbookDbContext, SpellListSpells>
+    public class SpellListSpellsRepository : ARepository<SpellbookDbContext, SpellListSpells>
     {
     }
 }

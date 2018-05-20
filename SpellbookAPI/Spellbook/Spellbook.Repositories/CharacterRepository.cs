@@ -4,7 +4,7 @@ using Spellbook.Models;
 
 namespace Spellbook.Repositories
 {
-   public class CharacterRepository: Repository<SpellbookDbContext, Character>
+   public class CharacterRepository: ARepository<SpellbookDbContext, Character>
    {
    }    
 }
