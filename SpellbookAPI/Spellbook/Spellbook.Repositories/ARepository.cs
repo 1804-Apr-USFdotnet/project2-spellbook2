@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Spellbook.DataContext;
 using System.Data.Entity;
@@ -11,16 +12,16 @@ namespace Spellbook.Repositories
     {
         private readonly C _context = new C();
 
-        public IQueryable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            IQueryable<T> query = _context.Set<T>();
+            IEnumerable<T> query = _context.Set<T>();
             return query;
         }
 
-        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
+        public IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
 
-            IQueryable<T> query = _context.Set<T>().Where(predicate);
+            IEnumerable<T> query = _context.Set<T>().Where(predicate);
             return query;
         }
 

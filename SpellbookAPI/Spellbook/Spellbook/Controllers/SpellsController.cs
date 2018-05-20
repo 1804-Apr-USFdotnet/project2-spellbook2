@@ -15,7 +15,9 @@ namespace Spellbook.Controllers
         // GET api/values
         public IHttpActionResult Get()
         {
-            return Ok(_service.GetAllSpells());
+            int[] hi = {1, 2, 3, 4, 5};
+            // return Ok(_service.GetAllSpells());
+            return Ok(hi);
         }
 
         // GET api/values/5
