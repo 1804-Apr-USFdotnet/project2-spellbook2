@@ -27,8 +27,8 @@ namespace Spellbook.Services
             {
                 case "Classes":
                 {
-                    querySplit = _queryString.Split(',');
-                    predicate = (x => querySplit.Contains(x.Classes));
+                    int inputBit = new BitwiseService().ClassConverter(_queryString);
+                    predicate = (x => (inputBit & x.ClassesAsInt) != 0);
                     break;
                 }
                 case "Schools":
