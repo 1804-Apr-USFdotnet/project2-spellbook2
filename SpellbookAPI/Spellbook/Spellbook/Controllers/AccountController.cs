@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,12 +9,12 @@ using System.Net.Http;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
+﻿using System.Web.Http;
 using Spellbook.Models;
-using Spellbook.DataContext;
 
 namespace Spellbook.Controllers
 {
-	public class AccountController : ApiController
+    public class AccountController : ApiController
 	{
 
 		[HttpGet]
