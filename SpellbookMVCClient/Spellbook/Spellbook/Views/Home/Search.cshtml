@@ -1,0 +1,123 @@
+﻿@model IEnumerable<Spellbook.Models.Spell>
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<h2>Search</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.School)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ritual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CastingTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Range)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Classes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Components)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AtHigherLevel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Concentration)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Slug)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Page)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassesAsInt)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.School)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Level)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ritual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CastingTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Range)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Classes)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Components)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AtHigherLevel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Concentration)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Slug)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Page)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassesAsInt)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SpellId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SpellId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SpellId })
+        </td>
+    </tr>
+}
+
+</table>
