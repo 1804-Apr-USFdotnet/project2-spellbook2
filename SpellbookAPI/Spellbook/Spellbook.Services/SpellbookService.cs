@@ -15,9 +15,9 @@ namespace Spellbook.Services
         private readonly SpellListRepository _spellLists = new SpellListRepository();
         private readonly SpellListSpellsRepository _spellListsSpells = new SpellListSpellsRepository();
 
-        public IQueryable<Spell> GetAllSpells()
+        public List<Spell> GetAllSpells()
         {
-            return _spells.GetAll();
+            return _spells.GetAll().ToList();
         }
 
         public Spell GetSpellBy(int id)
@@ -26,7 +26,7 @@ namespace Spellbook.Services
             return _spells.FindBy(predicate).FirstOrDefault();
         }
 
-        public IEnumerable<Spell> GetSpellBy(string queryString, string filter)
+        public List<Spell> GetSpellBy(string queryString, string filter)
         {
             try
             {
@@ -37,17 +37,17 @@ namespace Spellbook.Services
                     case "levels":
                     {
                         queryHelper.IntPredicate(out predicate);
-                        return _spells.FindBy(predicate);
+                        return _spells.FindBy(predicate).ToList();
                     }
                     case "classes":
                     {
                         queryHelper.StringPredicate(filter, out predicate);
-                        return _spells.FindBy(predicate);
+                        return _spells.FindBy(predicate).ToList();
                     }
                     case "schools":
                     {
                         queryHelper.StringPredicate(filter, out predicate);
-                        return _spells.FindBy(predicate);
+                        return _spells.FindBy(predicate).ToList();
                     }
                     default:
                     {
