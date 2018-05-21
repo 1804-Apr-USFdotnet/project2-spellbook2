@@ -6,18 +6,22 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace Spellbook.Services
 {
     public class SpellbookService
     {
+        private readonly IMapper _mapper;
         private readonly SpellRepository _spells = new SpellRepository();
         private readonly SpellListRepository _spellLists = new SpellListRepository();
         private readonly SpellListSpellsRepository _spellListsSpells = new SpellListSpellsRepository();
 
-        public List<Spell> GetAllSpells()
+        public List<SpellDTO> GetAllSpells()
         {
-            return _spells.GetAll().ToList();
+            var spellContainer = _spells.GetAll().ToList();
+            List<SpellDTO> viewModel = _mapper.Map<List<SpellDTO>>(spellContainer);
+            return viewModel;
         }
 
         public Spell GetSpellBy(int id)
