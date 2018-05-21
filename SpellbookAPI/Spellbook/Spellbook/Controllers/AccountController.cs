@@ -6,15 +6,13 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Net.Http;
-using Microsoft.Owin;
-using Microsoft.Owin.Security;
 using System.Security.Claims;
 ﻿using System.Web.Http;
 using Spellbook.Models;
 
 namespace Spellbook.Controllers
 {
-    public class AccountController : ApiController
+	public class AccountController : ApiController
 	{
 
 		[HttpGet]
