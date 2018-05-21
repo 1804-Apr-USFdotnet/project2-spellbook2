@@ -2,7 +2,7 @@
 
 namespace Spellbook.Models
 {
-    class AutoMapperProfile : Profile
+    public class AutoMapperProfile : Profile
     {
         public AutoMapperProfile()
         {
