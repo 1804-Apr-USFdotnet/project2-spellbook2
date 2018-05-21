@@ -25,13 +25,13 @@ namespace Spellbook.Services
             string[] querySplit;
             switch (filter)
             {
-                case "Classes":
+                case "classes":
                 {
                     int inputBit = new BitwiseService().ClassConverter(_queryString);
-                    predicate = (x => (inputBit & x.ClassesAsInt) != 0);
+                    predicate = (x => (inputBit & x.ClassesAsInt) == inputBit);
                     break;
                 }
-                case "Schools":
+                case "schools":
                 {
                     querySplit = _queryString.Split(',');
                     predicate = (x => querySplit.Contains(x.School));

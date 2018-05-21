@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
+using AutoMapper;
 
 namespace Spellbook.Services
 {
@@ -15,15 +16,19 @@ namespace Spellbook.Services
         private readonly SpellListRepository _spellLists = new SpellListRepository();
         private readonly SpellListSpellsRepository _spellListsSpells = new SpellListSpellsRepository();
 
-        public List<Spell> GetAllSpells()
+        public List<SpellDTO> GetAllSpells()
         {
-            return _spells.GetAll().ToList();
+            var spellContainer = _spells.GetAll().ToList();
+            List<SpellDTO> viewModel = Mapper.Map<List<SpellDTO>>(spellContainer);
+            return viewModel;
         }
 
-        public Spell GetSpellBy(int id)
+        public SpellDTO GetSpellBy(int id)
         {
             Expression<Func<Spell, bool>> predicate = (x => x.SpellId == id);
-            return _spells.FindBy(predicate).FirstOrDefault();
+            var spell = _spells.FindBy(predicate).FirstOrDefault();
+            var spelldto = Mapper.Map<SpellDTO>(spell);
+            return spelldto;
         }
 
         public List<Spell> GetSpellBy(string queryString, string filter)
