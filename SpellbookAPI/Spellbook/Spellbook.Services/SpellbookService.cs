@@ -31,7 +31,7 @@ namespace Spellbook.Services
             return spelldto;
         }
 
-        public List<Spell> GetSpellBy(string queryString, string filter)
+        public List<SpellDTO> GetSpellBy(string queryString, string filter)
         {
             try
             {
@@ -40,24 +40,27 @@ namespace Spellbook.Services
                 switch (filter)
                 {
                     case "levels":
-                    {
-                        queryHelper.IntPredicate(out predicate);
-                        return _spells.FindBy(predicate).ToList();
-                    }
+                        {
+                            queryHelper.IntPredicate(out predicate);
+                            var spellContainer = _spells.FindBy(predicate).ToList();
+                            return Mapper.Map<List<SpellDTO>>(spellContainer);
+                        }
                     case "classes":
-                    {
-                        queryHelper.StringPredicate(filter, out predicate);
-                        return _spells.FindBy(predicate).ToList();
-                    }
+                        {
+                            queryHelper.StringPredicate(filter, out predicate);
+                            var spellContainer = _spells.FindBy(predicate).ToList();
+                            return Mapper.Map<List<SpellDTO>>(spellContainer);
+                        }
                     case "schools":
-                    {
-                        queryHelper.StringPredicate(filter, out predicate);
-                        return _spells.FindBy(predicate).ToList();
-                    }
+                        {
+                            queryHelper.StringPredicate(filter, out predicate);
+                            var spellContainer = _spells.FindBy(predicate).ToList();
+                            return Mapper.Map<List<SpellDTO>>(spellContainer);
+                        }
                     default:
-                    {
-                        throw new SystemException();
-                    }
+                        {
+                            throw new SystemException();
+                        }
                 }
             }
             catch (Exception ex)
