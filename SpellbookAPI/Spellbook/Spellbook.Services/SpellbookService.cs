@@ -12,7 +12,6 @@ namespace Spellbook.Services
 {
     public class SpellbookService
     {
-        private readonly IMapper _mapper;
         private readonly SpellRepository _spells = new SpellRepository();
         private readonly SpellListRepository _spellLists = new SpellListRepository();
         private readonly SpellListSpellsRepository _spellListsSpells = new SpellListSpellsRepository();
@@ -20,14 +19,16 @@ namespace Spellbook.Services
         public List<SpellDTO> GetAllSpells()
         {
             var spellContainer = _spells.GetAll().ToList();
-            List<SpellDTO> viewModel = _mapper.Map<List<SpellDTO>>(spellContainer);
+            List<SpellDTO> viewModel = Mapper.Map<List<SpellDTO>>(spellContainer);
             return viewModel;
         }
 
-        public Spell GetSpellBy(int id)
+        public SpellDTO GetSpellBy(int id)
         {
             Expression<Func<Spell, bool>> predicate = (x => x.SpellId == id);
-            return _spells.FindBy(predicate).FirstOrDefault();
+            var spell = _spells.FindBy(predicate).FirstOrDefault();
+            var spelldto = Mapper.Map<SpellDTO>(spell);
+            return spelldto;
         }
 
         public List<Spell> GetSpellBy(string queryString, string filter)

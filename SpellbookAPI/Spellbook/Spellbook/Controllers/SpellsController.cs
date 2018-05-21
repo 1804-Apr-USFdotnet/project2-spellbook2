@@ -15,6 +15,9 @@ namespace Spellbook.Controllers
         // GET api/values
         public IHttpActionResult Get()
         {
+            var req = Request.GetQueryNameValuePairs();
+            if(req.Count() != 0)
+                return BadRequest("Invalid Parameters! :(");
             return Ok(_service.GetAllSpells());
         }
 
