@@ -47,6 +47,7 @@ namespace Spellbook.Controllers
         {
             try
             {
+                query.isNull();
                 if (!query.isValid())
                     return BadRequest("Query is not valid. :(");
                 return Ok(_service.GetSpellBy(query));

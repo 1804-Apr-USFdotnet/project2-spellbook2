@@ -11,6 +11,9 @@ namespace Spellbook.Services
     {
         public int ClassConverter(string classes)
         {
+            if (classes == null)
+                return 0;
+
             string[] splitClasses = classes.Split(',');
 
             for (int j = 0; j < splitClasses.Length; j++)
