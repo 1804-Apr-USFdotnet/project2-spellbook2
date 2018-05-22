@@ -20,7 +20,7 @@ namespace Spellbook.Models
 
         public string Range { get; set; }
 
-        //public string Classes { get; set; }
+        public string Classes { get; set; }
 
         public string Components { get; set; }
 
@@ -36,7 +36,7 @@ namespace Spellbook.Models
 
         public string Description { get; set; }
 
-        public int ClassesAsInt { get; set; }
+        //public int ClassesAsInt { get; set; }
 
         //public virtual ICollection<SpellListSpells> Spellbooks { get; set; }
     }

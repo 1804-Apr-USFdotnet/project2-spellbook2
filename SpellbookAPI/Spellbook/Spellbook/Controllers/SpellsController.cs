@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
+using Spellbook.Models;
 using Spellbook.Services;
 
 namespace Spellbook.Controllers
@@ -9,37 +10,24 @@ namespace Spellbook.Controllers
     public class SpellsController : ApiController
     {
         private readonly SpellbookService _service = new SpellbookService();
- 
-        public IHttpActionResult Get()
-        {
-            var req = Request.GetQueryNameValuePairs();
-
-            if(req.Count() != 0)
-                return BadRequest("Invalid Parameters! :(");
-
-            return Ok(_service.GetAllSpells());
-        }
 
         public IHttpActionResult Get(int id)
         {
             return Ok(_service.GetSpellBy(id));
         }
 
-        public IHttpActionResult Get(string queryString, string filter)
+        public IHttpActionResult Get([FromUri] SpellQuery query)
         {
-            string[] availableFilters = { "levels", "classes", "schools" };
             try
             {
-                if (!availableFilters.Contains(filter))
-                {
-                    return BadRequest("Your filter was inccorect! :(");
-                }
-
-                return Ok(_service.GetSpellBy(queryString, filter));
+                query.isNull();
+                if (!query.isValid())
+                    return BadRequest("Query is not valid. :(");
+                return Ok(_service.GetSpellBy(query));
             }
-            catch (Exception e)
+            catch (Exception EX_NAME)
             {
-                Console.WriteLine(e);
+                Console.WriteLine(EX_NAME);
                 throw;
             }
         }
