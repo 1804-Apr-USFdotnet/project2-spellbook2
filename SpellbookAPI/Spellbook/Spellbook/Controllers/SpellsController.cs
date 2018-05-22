@@ -41,5 +41,32 @@ namespace Spellbook.Controllers
                 throw;
             }
         }
+
+        public IHttpActionResult Get([FromUri] SpellQuery query)
+        {
+            try
+            {
+                if (!query.isValid())
+                    return BadRequest("Query is not valid. :(");
+                return Ok(_service.GetSpellBy(query));
+            }
+            catch (Exception EX_NAME)
+            {
+                Console.WriteLine(EX_NAME);
+                throw;
+            }
+        }
+    }
+
+    public class SpellQuery
+    {
+        public string school { get; set; }
+        public string classes { get; set; }
+        public string levels { get; set; }
+
+        public Boolean isValid()
+        {
+            return true;
+        }
     }
 }
