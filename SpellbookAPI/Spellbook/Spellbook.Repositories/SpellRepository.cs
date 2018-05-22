@@ -9,7 +9,7 @@ using Spellbook.Models;
 
 namespace Spellbook.Repositories 
 {
-    public class SpellRepository : Repository<SpellbookDbContext, Spell>
+    public class SpellRepository : ARepository<SpellbookDbContext, Spell>
     {
     }
 }

@@ -1,27 +1,27 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Spellbook.DataContext;
 using System.Data.Entity;
 using System.Linq.Expressions;
-using Spellbook.Models;
 
 namespace Spellbook.Repositories
 {
-    public abstract class Repository<C, T> :
+    public abstract class ARepository<C, T> :
         IRepository<T> where T : class where C : SpellbookDbContext, new()
     {
         private readonly C _context = new C();
 
-        public IQueryable<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
-            IQueryable<T> query = _context.Set<T>();
+            IEnumerable<T> query = _context.Set<T>();
             return query;
         }
 
-        public IQueryable<T> FindBy(Expression<Func<T, bool>> predicate)
+        public IEnumerable<T> FindBy(Expression<Func<T, bool>> predicate)
         {
 
-            IQueryable<T> query = _context.Set<T>().Where(predicate);
+            IEnumerable<T> query = _context.Set<T>().Where(predicate);
             return query;
         }
 
