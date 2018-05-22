@@ -69,6 +69,20 @@ namespace Spellbook.Services
             }
         }
 
+        public List<SpellDTO> GetSpellBy(SpellQuery query)
+        {
+            try
+            {
+                Expression<Func<Spell, bool>> predicate;
+                QueryStringService queryHelper = new QueryStringService(query);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+
         public SpellList GetSpellListBy(int id)
         {
             throw new NotImplementedException();

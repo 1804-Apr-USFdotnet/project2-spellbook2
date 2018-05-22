@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
+using Spellbook.Models;
 using Spellbook.Services;
 
 namespace Spellbook.Controllers
@@ -55,18 +56,6 @@ namespace Spellbook.Controllers
                 Console.WriteLine(EX_NAME);
                 throw;
             }
-        }
-    }
-
-    public class SpellQuery
-    {
-        public string school { get; set; }
-        public string classes { get; set; }
-        public string levels { get; set; }
-
-        public Boolean isValid()
-        {
-            return true;
         }
     }
 }
