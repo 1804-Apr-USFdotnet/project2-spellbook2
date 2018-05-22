@@ -83,6 +83,11 @@ namespace Spellbook.Services
             return _characters.FindBy(predicate).FirstOrDefault();
         }
 
+        public void AddCharacter(Character c)
+        {
+            _characters.Add(c);
+        }
+
     }
 }
 

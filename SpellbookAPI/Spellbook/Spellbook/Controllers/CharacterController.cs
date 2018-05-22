@@ -8,24 +8,25 @@ using Spellbook.Models;
 using Spellbook.Services;
 using System.Net.Http;
 
+
 namespace Spellbook.Controllers
 {
     public class CharacterController : ApiController
     {
-        private readonly SpellbookService service = new SpellbookService();
+        private readonly SpellbookService _characters = new SpellbookService();
 
         public IHttpActionResult Get(int id)
         {
             var req = Request.GetQueryNameValuePairs();
             if (req.Count() != 0)
                 return BadRequest("Invalid Parameters");
-
-            return Ok(service.GetCharacterBy(id));
+            return Ok(_characters.GetCharacterBy(id));
         }
 
-        //public Character Post()
-        //{
 
-        //}
+        public void Post( [FromBody] Character c)
+        {
+            _characters.AddCharacter(c); // method in order to update info
+        }
     }
 }
