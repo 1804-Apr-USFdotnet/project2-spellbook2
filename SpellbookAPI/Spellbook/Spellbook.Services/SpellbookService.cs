@@ -75,6 +75,9 @@ namespace Spellbook.Services
             {
                 Expression<Func<Spell, bool>> predicate;
                 QueryStringService queryHelper = new QueryStringService(query);
+                queryHelper.CompoundQuery(out predicate);
+                var spellContainer = _spells.FindBy(predicate).ToList();
+                return Mapper.Map<List<SpellDTO>>(spellContainer);
             }
             catch (Exception e)
             {
