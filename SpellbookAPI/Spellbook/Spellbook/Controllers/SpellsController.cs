@@ -9,7 +9,7 @@ namespace Spellbook.Controllers
     public class SpellsController : ApiController
     {
         private readonly SpellbookService _service = new SpellbookService();
-        // GET api/values
+ 
         public IHttpActionResult Get()
         {
             var req = Request.GetQueryNameValuePairs();
@@ -18,10 +18,8 @@ namespace Spellbook.Controllers
             return Ok(_service.GetAllSpells());
         }
 
-        // GET api/values/5
         public IHttpActionResult Get(int id)
         {
-            //comment
             return Ok(_service.GetSpellBy(id));
         }
 
@@ -34,10 +32,8 @@ namespace Spellbook.Controllers
                 {
                     return BadRequest("Your filter was inccorect! :(");
                 }
-                else
-                {
-                    return Ok(_service.GetSpellBy(queryString, filter));
-                }
+
+                return Ok(_service.GetSpellBy(queryString, filter));
             }
             catch (Exception e)
             {
