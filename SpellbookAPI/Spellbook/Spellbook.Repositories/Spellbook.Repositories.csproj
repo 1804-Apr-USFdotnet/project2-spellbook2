@@ -54,6 +54,7 @@
     <Compile Include="SpellListSpellsRepository.cs" />
     <Compile Include="ARepository.cs" />
     <Compile Include="SpellRepository.cs" />
+    <Compile Include="UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
