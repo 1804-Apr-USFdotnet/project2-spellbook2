@@ -58,6 +58,7 @@
     <Compile Include="SpellDTO.cs" />
     <Compile Include="SpellList.cs" />
     <Compile Include="SpellListSpells.cs" />
+    <Compile Include="SpellQuery.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
