@@ -13,8 +13,10 @@ namespace Spellbook.Controllers
         public IHttpActionResult Get()
         {
             var req = Request.GetQueryNameValuePairs();
+
             if(req.Count() != 0)
                 return BadRequest("Invalid Parameters! :(");
+
             return Ok(_service.GetAllSpells());
         }
 

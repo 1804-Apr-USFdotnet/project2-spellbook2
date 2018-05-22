@@ -77,15 +77,12 @@ namespace Spellbook.Services
             throw new NotImplementedException();
         }
 
-        public Character GetCharacterBy(int id) //Caitlin Was Here
+        public Character GetCharacterBy(int id)
         {
             Expression<Func<Character, bool>> predicate = (x => x.CharacterId == id);
             return _characters.FindBy(predicate).FirstOrDefault();
         }
-        public Character GetCharacterBy(string str)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 }
 

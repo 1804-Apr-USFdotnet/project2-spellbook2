@@ -12,6 +12,6 @@ namespace Spellbook.Models
         public string Name { get; set; }
         public int Level {get; set;}
         //public virtual User {get; set;}
-       // public virtual Spellbook {get; set;}    NOT YET! soon though
+       public virtual SpellList Spellbook {get; set;}   
     }
 }
