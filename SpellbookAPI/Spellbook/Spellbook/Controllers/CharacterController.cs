@@ -23,10 +23,18 @@ namespace Spellbook.Controllers
             return Ok(_characters.GetCharacterBy(id));
         }
 
-
+        public void Put([FromBody] Character c)
+        {
+            _characters.EditCharacter(c);
+        }
         public void Post( [FromBody] Character c)
         {
-            _characters.AddCharacter(c); // method in order to update info
+            _characters.AddCharacter(c); 
+        }
+
+        public void Delete(Character c)
+        {
+            _characters.DeleteCharacter(c);
         }
     }
 }

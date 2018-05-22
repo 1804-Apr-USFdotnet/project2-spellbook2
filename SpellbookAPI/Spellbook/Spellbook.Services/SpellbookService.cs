@@ -88,6 +88,16 @@ namespace Spellbook.Services
             _characters.Add(c);
         }
 
+        public void DeleteCharacter(Character c)
+        {
+            _characters.Delete(c);
+        }
+
+        public void EditCharacter(Character c)
+        {
+            _characters.Edit(c);
+        }
+
     }
 }
 
