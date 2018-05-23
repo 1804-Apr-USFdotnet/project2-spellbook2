@@ -13,10 +13,19 @@ namespace Spellbook.Services
     {
         private readonly SpellListRepository _spellLists = new SpellListRepository();
 
-        public SpellList GetSpellListBy(int id)
-        {
-            throw new NotImplementedException();
+        public SpellListDTO GetSpellListBy(int id) {
+            var spellbook = _spellLists.FindBy(sl => sl.SpellListId == id).Single();
+
+            return Mapper.Map<SpellListDTO>(spellbook);
         }
+
+        public List<SpellListDTO> GetAllSpellList() {
+            var spellbooks = _spellLists.GetAll().ToList();
+
+            return Mapper.Map<List<SpellListDTO>>(spellbooks);
+        }
+
+
     }
 }
 
