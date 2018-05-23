@@ -15,7 +15,6 @@ namespace Spellbook.Services
 
         private readonly CharacterRepository _characters = new CharacterRepository(); 
         private readonly SpellListRepository _spellLists = new SpellListRepository();
-        private readonly SpellListSpellsRepository _spellListsSpells = new SpellListSpellsRepository();
 
         public SpellDTO GetSpellBy(int id)
         {
