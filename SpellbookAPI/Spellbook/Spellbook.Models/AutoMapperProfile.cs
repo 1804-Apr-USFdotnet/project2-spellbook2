@@ -8,6 +8,7 @@ namespace Spellbook.Models
         {
             CreateMap<Spell, SpellDTO>();
             CreateMap<SpellList, SpellListDTO>();
+            CreateMap<Character, CharacterDTO>();
         }
     }
 }
