@@ -15,6 +15,14 @@ namespace Spellbook.Controllers
     {
         private readonly SpellbookService _characters = new SpellbookService();
 
+        public IHttpActionResult Get()
+        {
+            var req = Request.GetQueryNameValuePairs();
+            if (req.Count() != 0)
+                return BadRequest("Invalid Parameters");
+            return Ok(_characters.GetAllCharacters());
+        }
+
         public IHttpActionResult Get(int id)
         {
             var req = Request.GetQueryNameValuePairs();

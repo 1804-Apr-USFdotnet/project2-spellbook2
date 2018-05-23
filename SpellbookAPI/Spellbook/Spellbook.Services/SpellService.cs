@@ -38,35 +38,9 @@ namespace Spellbook.Services
                 throw;
             }
         }
-<<<<<<< HEAD:SpellbookAPI/Spellbook/Spellbook.Services/SpellbookService.cs
-
         public SpellList GetSpellListBy(int id)
         {
             throw new NotImplementedException();
         }
-
-        public Character GetCharacterBy(int id)
-        {
-            Expression<Func<Character, bool>> predicate = (x => x.CharacterId == id);
-            return _characters.FindBy(predicate).FirstOrDefault();
-        }
-
-        public void AddCharacter(Character c)
-        {
-            _characters.Add(c);
-        }
-
-        public void DeleteCharacter(Character c)
-        {
-            _characters.Delete(c);
-        }
-
-        public void EditCharacter(Character c)
-        {
-            _characters.Edit(c);
-        }
-
-=======
->>>>>>> master:SpellbookAPI/Spellbook/Spellbook.Services/SpellService.cs
     }
 }
