@@ -1,18 +1,18 @@
-﻿using Spellbook.Models;
-using Spellbook.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
+using System.Threading.Tasks;
 using AutoMapper;
+using Spellbook.Models;
+using Spellbook.Repositories;
 
 namespace Spellbook.Services
 {
-    public class SpellbookService
+    public partial class SpellbookService
     {
         private readonly SpellRepository _spells = new SpellRepository();
-        private readonly SpellListRepository _spellLists = new SpellListRepository();
 
         public SpellDTO GetSpellBy(int id)
         {
@@ -38,11 +38,5 @@ namespace Spellbook.Services
                 throw;
             }
         }
-
-        public SpellList GetSpellListBy(int id)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
-
