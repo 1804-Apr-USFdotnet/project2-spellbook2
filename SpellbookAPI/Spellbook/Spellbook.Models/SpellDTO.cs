@@ -4,7 +4,7 @@ namespace Spellbook.Models
 {
     public class SpellDTO
     {
-        public int SpellDTOId { get; set; }
+        public int SpellId { get; set; }
 
         public string Name { get; set; }
 

@@ -7,6 +7,7 @@ namespace Spellbook.Models
         public AutoMapperProfile()
         {
             CreateMap<Spell, SpellDTO>();
+            CreateMap<Character, CharacterDTO>();
         }
     }
 }

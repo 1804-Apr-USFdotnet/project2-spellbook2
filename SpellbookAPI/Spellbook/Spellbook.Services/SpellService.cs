@@ -38,5 +38,9 @@ namespace Spellbook.Services
                 throw;
             }
         }
+        public SpellList GetSpellListBy(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
