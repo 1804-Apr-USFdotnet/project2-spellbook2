@@ -48,18 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbInit.cs" />
-    <Compile Include="Migrations\201805171808158_InitialCreate.cs" />
-    <Compile Include="Migrations\201805171808158_InitialCreate.Designer.cs">
-      <DependentUpon>201805171808158_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805202307209_ChangeSpellsTable.cs" />
-    <Compile Include="Migrations\201805202307209_ChangeSpellsTable.Designer.cs">
-      <DependentUpon>201805202307209_ChangeSpellsTable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805202320457_ChangeSpellsTable1.cs" />
-    <Compile Include="Migrations\201805202320457_ChangeSpellsTable1.Designer.cs">
-      <DependentUpon>201805202320457_ChangeSpellsTable1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SpellbookDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,17 +61,6 @@
       <Project>{73547e0d-5f94-4394-95a6-1a2bd9333179}</Project>
       <Name>Spellbook.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201805171808158_InitialCreate.resx">
-      <DependentUpon>201805171808158_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805202307209_ChangeSpellsTable.resx">
-      <DependentUpon>201805202307209_ChangeSpellsTable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805202320457_ChangeSpellsTable1.resx">
-      <DependentUpon>201805202320457_ChangeSpellsTable1.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

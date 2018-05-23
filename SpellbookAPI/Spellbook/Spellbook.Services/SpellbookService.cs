@@ -13,7 +13,6 @@ namespace Spellbook.Services
     {
         private readonly SpellRepository _spells = new SpellRepository();
         private readonly SpellListRepository _spellLists = new SpellListRepository();
-        private readonly SpellListSpellsRepository _spellListsSpells = new SpellListSpellsRepository();
 
         public SpellDTO GetSpellBy(int id)
         {
