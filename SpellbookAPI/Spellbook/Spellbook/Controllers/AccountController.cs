@@ -1,49 +1,63 @@
 using System;
+using System.Web.ApplicationServices;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Security.Claims;
-using Microsoft.Owin.Security;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+
 
 using Spellbook.Models;
-using Spellbook.Repositories;
+using Spellbook.DataContext;
 
 namespace Spellbook.Controllers
 {
 	public class AccountController : ApiController
 	{
-		private readonly UserRepository _user = new UserRepository();
+		// create user db context here
+		UserDbContext _user = new UserDbContext();
+
 
 		[HttpGet]
-		public void Get()
+		[Route("~/api/Account/Get")]
+		[AllowAnonymous]
+		public IHttpActionResult Get()
 		{
-			//return Ok();
+			string t = _user.Users.ToList().ToString();
+			return Ok(t);
 		}
 
 		[HttpPost]
+		[Route("~/api/Account/Create")]
 		[AllowAnonymous]
-		public IHttpActionResult CreateAccount(User user)
+		public IHttpActionResult Create(User user)
 		{
 			if (!ModelState.IsValid)
 				return BadRequest();
 
-			// check if email already exist 
-			if (_user.GetAll().Any(x => x.Email == user.Email))
+			if (_user.Users.ToList().Contains(user))
 			{
-				return BadRequest("Email already exist");
+				return BadRequest("User already exist");
 			}
 
-			// no user found, create a new one
-			_user.Add(user);
+			_user.Users.Add(user);
+			_user.SaveChanges();
 
-			return Ok();
+			// check if email already exist 
+			/*if (_user.GetAll().Any(x => x.Email == user.Email))
+			{
+				return BadRequest("Email already exist");
+			}*/
+
+			// no user found, create a new one
+			//_user.Add(user);
+
+			return Ok(user.Name + user.Password);
 		}
 
 		[HttpDelete]
@@ -53,12 +67,11 @@ namespace Spellbook.Controllers
 		}
 
 		[HttpPost]
+		[AllowAnonymous]
 		public IHttpActionResult LogIn(User user)
 		{
 			if (!ModelState.IsValid)
-			{
 				return BadRequest();
-			}
 
 			return Ok();
 		}
@@ -66,7 +79,7 @@ namespace Spellbook.Controllers
 		[HttpGet]
 		public IHttpActionResult LogOut()
 		{
-			Request.GetOwinContext().Authentication.SignOut();
+			Request.GetOwinContext().Authentication.SignOut(WebApiConfig.AuthenticationType);
 			return Ok();
 		}
 	}

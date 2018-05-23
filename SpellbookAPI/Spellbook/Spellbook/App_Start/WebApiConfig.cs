@@ -2,20 +2,27 @@
 
 namespace Spellbook
 {
-    public static class WebApiConfig
-    {
-        public static void Register(HttpConfiguration config)
-        {
-            // Web API configuration and services
+	public static class WebApiConfig
+	{
+		public static string AuthenticationType = "AuthCookie";
+		public static string CookieName = "UserCookie";
 
-            // Web API routes
-            config.MapHttpAttributeRoutes();
+		public static void Register(HttpConfiguration config)
+		{
+			// Web Api config and services
+			config.EnableCors();
 
-            config.Routes.MapHttpRoute(
-                name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
-            );
-        }
-    }
+			// Web API routes
+			config.MapHttpAttributeRoutes();
+
+			config.Routes.MapHttpRoute(
+				name: "DefaultApi",
+				routeTemplate: "api/{controller}/{id}",
+				defaults: new
+				{
+					id = RouteParameter.Optional
+				}
+			);
+		}
+	}
 }
