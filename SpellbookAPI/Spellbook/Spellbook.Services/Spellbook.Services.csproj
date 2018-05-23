@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="AccountServices.cs" />
     <Compile Include="BitwiseService.cs" />
+    <Compile Include="CharaterService.cs" />
     <Compile Include="QueryStringService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpellListService.cs" />
