@@ -28,7 +28,11 @@ namespace Spellbook.Controllers
 		[AllowAnonymous]
 		public IHttpActionResult Get()
 		{
-			string t = _user.Users.ToList().ToString();
+			string t = "";
+			foreach (var item in _user.Users.ToList())
+			{
+				t += item.Name;
+			}
 			return Ok(t);
 		}
 
