@@ -1,3 +1,13 @@
-<p>
-  spell-component works!
-</p>
+<button (click)="getSpell()">Get Spells!</button>
+
+<div *ngIf="spells">
+  <h3>Pokemons:</h3>
+  <ol>
+    <li *ngFor="let s of spells">
+      {{s.Name}}, {{s.School}}, {{S.Level}}, {{S.Classes}}
+    </li>
+  </ol>
+</div>
+<div *ngIf="!spells">
+  <h4>No spells :(</h4>
+</div>
