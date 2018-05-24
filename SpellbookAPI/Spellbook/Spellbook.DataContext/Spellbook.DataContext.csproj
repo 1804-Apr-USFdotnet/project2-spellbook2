@@ -52,6 +52,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbInit.cs" />
+    <Compile Include="Migrations\201805241902061_migration-5-24.cs" />
+    <Compile Include="Migrations\201805241902061_migration-5-24.Designer.cs">
+      <DependentUpon>201805241902061_migration-5-24.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="SpellbookDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,6 +69,11 @@
       <Project>{73547e0d-5f94-4394-95a6-1a2bd9333179}</Project>
       <Name>Spellbook.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201805241902061_migration-5-24.resx">
+      <DependentUpon>201805241902061_migration-5-24.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
