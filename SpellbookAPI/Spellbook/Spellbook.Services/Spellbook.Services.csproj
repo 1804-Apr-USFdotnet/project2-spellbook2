@@ -55,6 +55,7 @@
     <Compile Include="CharacterService.cs" />
     <Compile Include="QueryStringService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpellbookService.cs" />
     <Compile Include="SpellListService.cs" />
     <Compile Include="SpellService.cs" />
   </ItemGroup>

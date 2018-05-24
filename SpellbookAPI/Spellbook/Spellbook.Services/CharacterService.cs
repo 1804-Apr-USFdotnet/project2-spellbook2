@@ -12,8 +12,6 @@ namespace Spellbook.Services
 {
     public partial class SpellbookService
     {
-        private readonly CharacterRepository _characters = new CharacterRepository();
-
         public List<CharacterDTO> GetAllCharacters()
         {
             var characters = _characters.GetAll().ToList();
