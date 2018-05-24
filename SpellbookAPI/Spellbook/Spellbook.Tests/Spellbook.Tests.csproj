@@ -60,6 +60,9 @@
     <Reference Include="System.Runtime.Serialization" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestRepositories.cs" />
+    <Compile Include="TestSpellbookDbContext.cs" />
+    <Compile Include="TestSpellService.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -68,9 +71,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Spellbook.Models\Spellbook.Models.csproj">
+      <Project>{73547E0D-5F94-4394-95A6-1A2BD9333179}</Project>
+      <Name>Spellbook.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Spellbook.Repositories\Spellbook.Repositories.csproj">
       <Project>{78260335-BB69-4477-8D7E-7B4699BC3EDA}</Project>
       <Name>Spellbook.Repositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Spellbook.Services\Spellbook.Services.csproj">
+      <Project>{76CC161E-D166-4D2A-9954-77690E020CC1}</Project>
+      <Name>Spellbook.Services</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
