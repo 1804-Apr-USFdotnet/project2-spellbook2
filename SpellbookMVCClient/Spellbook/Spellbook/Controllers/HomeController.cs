@@ -23,7 +23,7 @@ namespace Spellbook.Controllers
         public async Task<ActionResult> QuickSearch(string query, string filter)
         {
             // todo HARD CODE BIG NONO STOP NOW
-            HttpResponseMessage response = await client.GetAsync($"http://localhost:58987/api/Spells?q={query}&filter={filter}");
+            HttpResponseMessage response = await client.GetAsync($"http://api.cameronwagstaff.net/api/Spells?q={query}&filter={filter}");
 
             if (!response.IsSuccessStatusCode) {
                 return View("Error");
