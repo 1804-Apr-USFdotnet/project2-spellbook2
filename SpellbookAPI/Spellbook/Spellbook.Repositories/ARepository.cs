@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 namespace Spellbook.Repositories
 {
     public abstract class ARepository<C, T> :
-        IRepository<T> where T : class where C : SpellbookDbContext, new()
+        IRepository<T> where T : class where C : DbContext, new()
     {
         private readonly C _context = new C();
 
