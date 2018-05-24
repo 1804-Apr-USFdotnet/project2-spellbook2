@@ -13,27 +13,29 @@ using Microsoft.Owin.Security;
 
 
 using Spellbook.Models;
+using Spellbook.Services;
 using Spellbook.DataContext;
 
 namespace Spellbook.Controllers
 {
 	public class AccountController : ApiController
 	{
-		// create user db context here
-		UserDbContext _user = new UserDbContext();
+		private readonly UserService _userService = new UserService();
 
+		[HttpGet]
+		/[Route("~/api/Account/Get")]
+		[AllowAnonymous]
+		public IHttpActionResult Get()
+		{
+			return Ok(String.Join(", ", _userService.GetUsers().Select(x => x.Name)));
+		}
 
 		[HttpGet]
 		[Route("~/api/Account/Get")]
 		[AllowAnonymous]
-		public IHttpActionResult Get()
+		public IHttpActionResult Get(int id)
 		{
-			string t = "";
-			foreach (var item in _user.Users.ToList())
-			{
-				t += item.Name;
-			}
-			return Ok(t);
+			return Ok(_userService.GetUserById(id).Name);
 		}
 
 		[HttpPost]
@@ -44,24 +46,13 @@ namespace Spellbook.Controllers
 			if (!ModelState.IsValid)
 				return BadRequest();
 
-			if (_user.Users.ToList().Contains(user))
-			{
-				return BadRequest("User already exist");
-			}
+			var userStore = new UserStore<IdentityUser>(new UserDbContext());
+			var userManager = new UserManager<IdentityUser>(userStore);
+			var temp = new IdentityUser(user.Name);
 
-			_user.Users.Add(user);
-			_user.SaveChanges();
+			userManager.Create(temp, user.Password);	
 
-			// check if email already exist 
-			/*if (_user.GetAll().Any(x => x.Email == user.Email))
-			{
-				return BadRequest("Email already exist");
-			}*/
-
-			// no user found, create a new one
-			//_user.Add(user);
-
-			return Ok(user.Name + user.Password);
+			return Ok("got here");
 		}
 
 		[HttpDelete]
