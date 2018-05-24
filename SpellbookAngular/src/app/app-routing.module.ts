@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { SpellComponentComponent } from './Components/spell-component/spell-component.component';
+import { SpellComponent } from './Components/spell/spell.component';
 
 const appRoutes: Routes = [
-  {path: "spells", component: SpellComponentComponent}
+  {path: "spells", component: SpellComponent}
 ]
 
 @NgModule({
