@@ -7,11 +7,13 @@ import { AppRoutingModule } from './/app-routing.module';
 
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './Components/navigation-bar/navigation-bar.component';
+import { SpellComponentComponent } from './Components/spell-component/spell-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    SpellComponentComponent
   ],
   imports: [
     BrowserModule,
