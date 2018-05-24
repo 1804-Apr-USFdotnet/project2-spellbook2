@@ -3,11 +3,11 @@ import { Spell } from '../../Models/Spell';
 import { SpellService } from '../../Services/spell.service';
 
 @Component({
-  selector: 'app-spell-component',
-  templateUrl: './spell-component.component.html',
-  styleUrls: ['./spell-component.component.css']
+  selector: 'app-spell',
+  templateUrl: './spell.component.html',
+  styleUrls: ['./spell.component.css']
 })
-export class SpellComponentComponent implements OnInit {
+export class SpellComponent implements OnInit {
 
   spells: Spell[]
 
@@ -15,7 +15,7 @@ export class SpellComponentComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
   getSpells(){
     this.spellSvc.getAllSpells((response)=> {
       this.spells= response;
