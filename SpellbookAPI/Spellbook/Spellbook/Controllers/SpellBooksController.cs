@@ -12,10 +12,10 @@ using Spellbook.Services;
 namespace Spellbook.Controllers
 {
     public class SpellBooksController : ApiController {
-        private readonly SpellbookService _service;
+        private readonly ISpellbookService _service;
 
-        public SpellBooksController() {
-            //pass in service
+        public SpellBooksController(ISpellbookService service) {
+            _service = service;
         }
 
         public IHttpActionResult Get(int id) {

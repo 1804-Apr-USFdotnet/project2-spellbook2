@@ -26,5 +26,15 @@ namespace Spellbook.Services
         void EditSpellList(SpellListDTO newSpellList);
 
         void DeleteSpellList(int id);
-    }
-}
+
+        List<CharacterDTO> GetAllCharacters();
+
+        CharacterDTO GetCharacterBy(int id);
+
+        void AddCharacter(Character c);
+
+        void DeleteCharacter(Character c);
+
+        void EditCharacter(Character c);
+    }   
+}       

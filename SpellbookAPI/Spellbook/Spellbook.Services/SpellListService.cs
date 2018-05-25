@@ -29,12 +29,7 @@ namespace Spellbook.Services
                 Name = spellList.Name
             };
 
-            var spells = _spells.GetAll().Where(sp => spellList.SpellIds.Contains(sp.SpellId)).ToList();
-
-            newSpellList.Spells = spells;
-
-            // todo
-            //newSpellList.Spells = GetAllSpells();
+            newSpellList.Spells = GetAllSpells().Where(sp => spellList.SpellIds.Contains(sp.SpellId)).ToList();
 
             _spellLists.Add(newSpellList);
 

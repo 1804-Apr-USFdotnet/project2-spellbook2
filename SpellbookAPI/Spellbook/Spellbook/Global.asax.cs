@@ -19,7 +19,7 @@ namespace Spellbook
         {
             AutoMapper.Mapper.Initialize(cfg => cfg.AddProfile<AutoMapperProfile>());
             GlobalConfiguration.Configuration.DependencyResolver =
-                new AutofacWebApiDependencyResolver(Bootstrapper.RegisterTypes);
+                new AutofacWebApiDependencyResolver(Bootstrapper.RegisterTypes());
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

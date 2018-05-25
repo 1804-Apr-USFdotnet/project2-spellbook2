@@ -13,7 +13,11 @@ namespace Spellbook.Controllers
 {
     public class CharacterController : ApiController
     {
-        private readonly SpellbookService _characters = new SpellbookService();
+        private readonly ISpellbookService _characters;
+
+        public CharacterController(ISpellbookService service) {
+            _characters = service;
+        }
 
         public IHttpActionResult Get()
         {

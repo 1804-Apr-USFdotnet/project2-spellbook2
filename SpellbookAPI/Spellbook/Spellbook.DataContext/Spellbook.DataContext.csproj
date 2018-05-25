@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbInit.cs" />
+    <Compile Include="IDbContext.cs" />
     <Compile Include="Migrations\201805241902061_migration-5-24.cs" />
     <Compile Include="Migrations\201805241902061_migration-5-24.Designer.cs">
       <DependentUpon>201805241902061_migration-5-24.cs</DependentUpon>

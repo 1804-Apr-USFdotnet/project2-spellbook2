@@ -292,6 +292,10 @@
       <Project>{73547e0d-5f94-4394-95a6-1a2bd9333179}</Project>
       <Name>Spellbook.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Spellbook.Repositories\Spellbook.Repositories.csproj">
+      <Project>{78260335-BB69-4477-8D7E-7B4699BC3EDA}</Project>
+      <Name>Spellbook.Repositories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Spellbook.Services\Spellbook.Services.csproj">
       <Project>{76cc161e-d166-4d2a-9954-77690e020cc1}</Project>
       <Name>Spellbook.Services</Name>
