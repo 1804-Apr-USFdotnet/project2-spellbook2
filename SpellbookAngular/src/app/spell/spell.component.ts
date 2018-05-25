@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Spell } from '../../Models/Spell';
-import { SpellService } from '../../Services/spell.service';
+import { Spell } from '../Models/Spell';
+import { SpellService } from '../Services/spell.service';
 
 @Component({
   selector: 'app-spell',
@@ -14,6 +14,7 @@ export class SpellComponent implements OnInit {
   constructor(private spellSvc: SpellService) { }
 
   ngOnInit() {
+    this.getSpells();
   }
   
   getSpells(){

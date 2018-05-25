@@ -1,0 +1,17 @@
+<div *ngIf="spells">
+  <h3>Spells:</h3>
+
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel *ngFor="let s of spells">
+      <ng-template ngbPanelTitle>
+        <span>Name: {{s.Name}} </span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        {{s.School}}, {{s.Level}}, {{s.Classes}}
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+<div *ngIf="!spells">
+  <h4>No spells :(</h4>
+</div>

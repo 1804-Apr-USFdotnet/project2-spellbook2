@@ -7,13 +7,12 @@ import { AppRoutingModule } from './/app-routing.module';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { NavigationBarComponent } from './Components/navigation-bar/navigation-bar.component';
-import { SpellComponent } from './Components/spell/spell.component';
+import { SpellComponent } from './spell/spell.component';
+import { UiModule } from './ui/ui.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationBarComponent,
     SpellComponent
   ],
   imports: [
@@ -22,7 +21,8 @@ import { SpellComponent } from './Components/spell/spell.component';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    UiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
