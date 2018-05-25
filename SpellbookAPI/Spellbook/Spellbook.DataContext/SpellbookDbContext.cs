@@ -3,7 +3,7 @@ using Spellbook.Models;
 
 namespace Spellbook.DataContext
 {
-    public class SpellbookDbContext : DbContext
+    public class SpellbookDbContext : DbContext, IDbContext
     {
         public SpellbookDbContext() : base("name=SpellBookContext")
         {
