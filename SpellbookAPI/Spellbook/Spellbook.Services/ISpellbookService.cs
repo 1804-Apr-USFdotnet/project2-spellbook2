@@ -27,10 +27,10 @@ namespace Spellbook.Services
 
         CharacterDTO GetCharacterBy(int id);
 
-        void AddCharacter(Character c);
+        void AddCharacter(CharacterDTO c);
 
-        void DeleteCharacter(Character c);
+        void DeleteCharacter(int id);
 
-        void EditCharacter(Character c);
+        void EditCharacter(CharacterDTO c);
     }   
 }       
