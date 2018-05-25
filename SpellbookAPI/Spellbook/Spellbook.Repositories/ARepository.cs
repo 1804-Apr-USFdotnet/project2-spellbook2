@@ -10,7 +10,11 @@ namespace Spellbook.Repositories
     public abstract class ARepository<C, T> :
         IRepository<T> where T : class where C : DbContext, new()
     {
-        private readonly C _context = new C();
+        private readonly C _context;
+
+        protected ARepository(C context) {
+            _context = context;
+        }
 
         public IEnumerable<T> GetAll()
         {

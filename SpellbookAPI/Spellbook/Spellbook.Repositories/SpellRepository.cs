@@ -11,5 +11,6 @@ namespace Spellbook.Repositories
 {
     public class SpellRepository : ARepository<SpellbookDbContext, Spell>
     {
+        public SpellRepository(SpellbookDbContext context) : base(context) { }
     }
 }
