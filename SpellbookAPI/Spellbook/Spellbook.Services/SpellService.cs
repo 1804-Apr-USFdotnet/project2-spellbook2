@@ -12,8 +12,6 @@ namespace Spellbook.Services
 {
     public partial class SpellbookService
     {
-        private readonly SpellRepository _spells = new SpellRepository();
-
         public SpellDTO GetSpellBy(int id)
         {
             Expression<Func<Spell, bool>> predicate = (x => x.SpellId == id);

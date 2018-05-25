@@ -2,11 +2,13 @@
 using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Spellbook.Models;
 using Spellbook.Services;
 
 namespace Spellbook.Controllers
 {
+    [EnableCors(origins:"*", headers:"*", methods:"*")]
     public class SpellsController : ApiController
     {
         private readonly SpellbookService _service = new SpellbookService();
