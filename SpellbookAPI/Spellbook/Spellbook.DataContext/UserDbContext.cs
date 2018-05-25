@@ -7,11 +7,10 @@ namespace Spellbook.DataContext
 	{
 		public UserDbContext() : base("name=UserContext")
 		{
-			Database.SetInitializer<UserDbContext>(new User_DbInit());
+			//Database.SetInitializer<UserDbContext>(new User_DbInit());
 		}
 
-		public DbSet<User> Users { get; set;}
-
+		//public DbSet<User> Users { get; set;}
 	}
 
 	class User_DbInit : CreateDatabaseIfNotExists<UserDbContext>

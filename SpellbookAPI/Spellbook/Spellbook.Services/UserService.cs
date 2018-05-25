@@ -13,27 +13,34 @@ namespace Spellbook.Services
 {
 	public class UserService
 	{
-		private readonly UserRepository _user = new UserRepository();
+		private readonly IdentityDbContext _user = new IdentityDbContext();
 
-		public IEnumerable<User> GetUsers()
+		public String GetUsers()
 		{
-			return _user.GetAll().ToList()
+			var t =  _user.Users.
+			var s = "";
+			foreach(var item in t)
+			{
+				s += t;
+			}
+			return s;
+			//return _user.GetAll().ToList();
 		}
-
+		/*
 		public User GetUserById(int id)
 		{
-			return _user.FindBy(x => x.UserId == id).Single();
+			//return _user.FindBy(x => x.UserId == id).Single();
 		}
 
-		public void AddUser(User user)
+		public string AddUser(User user)
 		{
-			var userStore = new UserStore<IdentityUser>();
+			//return _user.RegisterUser(user);
 		}
 
 		public void DeleteUser(User user)
 		{
-			_user.Delete(user);
-			_user.Save();
-		}
+			//_user.Delete(user);
+			//_user.Save();
+		}*/
 	}
 }

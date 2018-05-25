@@ -23,13 +23,14 @@ namespace Spellbook.Controllers
 		private readonly UserService _userService = new UserService();
 
 		[HttpGet]
-		/[Route("~/api/Account/Get")]
+		[Route("~/api/Account/Get")]
 		[AllowAnonymous]
 		public IHttpActionResult Get()
 		{
-			return Ok(String.Join(", ", _userService.GetUsers().Select(x => x.Name)));
+			return Ok(_userService.GetUsers());
+			//return Ok(String.Join(", ", _userService.GetUsers().Select(x => x.Name)));
 		}
-
+		/*
 		[HttpGet]
 		[Route("~/api/Account/Get")]
 		[AllowAnonymous]
@@ -46,13 +47,7 @@ namespace Spellbook.Controllers
 			if (!ModelState.IsValid)
 				return BadRequest();
 
-			var userStore = new UserStore<IdentityUser>(new UserDbContext());
-			var userManager = new UserManager<IdentityUser>(userStore);
-			var temp = new IdentityUser(user.Name);
-
-			userManager.Create(temp, user.Password);	
-
-			return Ok("got here");
+			return Ok(_userService.AddUser(user));
 		}
 
 		[HttpDelete]
@@ -76,6 +71,6 @@ namespace Spellbook.Controllers
 		{
 			Request.GetOwinContext().Authentication.SignOut(WebApiConfig.AuthenticationType);
 			return Ok();
-		}
+		}*/
 	}
 }
