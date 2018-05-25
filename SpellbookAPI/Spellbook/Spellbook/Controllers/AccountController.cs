@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
@@ -27,7 +28,7 @@ namespace Spellbook.Controllers
 		[AllowAnonymous]
 		public IHttpActionResult Get()
 		{
-			return Ok(_userService.GetUsers());
+			return Ok(_userService.GetUsersAsync(1));
 			//return Ok(String.Join(", ", _userService.GetUsers().Select(x => x.Name)));
 		}
 		/*
@@ -37,7 +38,7 @@ namespace Spellbook.Controllers
 		public IHttpActionResult Get(int id)
 		{
 			return Ok(_userService.GetUserById(id).Name);
-		}
+		}*/
 
 		[HttpPost]
 		[Route("~/api/Account/Create")]
@@ -50,6 +51,7 @@ namespace Spellbook.Controllers
 			return Ok(_userService.AddUser(user));
 		}
 
+		/*
 		[HttpDelete]
 		public IHttpActionResult DeleteAccount(User user)
 		{

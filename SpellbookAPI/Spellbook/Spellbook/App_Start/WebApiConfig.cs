@@ -7,6 +7,7 @@ namespace Spellbook
 		public static string AuthenticationType = "AuthCookie";
 		public static string CookieName = "UserCookie";
 
+
 		public static void Register(HttpConfiguration config)
 		{
 			// Web Api config and services

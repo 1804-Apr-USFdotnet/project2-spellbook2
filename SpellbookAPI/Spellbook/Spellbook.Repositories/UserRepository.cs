@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 using Spellbook.DataContext;
@@ -23,6 +24,14 @@ namespace Spellbook.Repositories
 			{
 				return "failed";
 			}
+		}
+
+		public async Task<string> GetUserByIdAsync(int id)
+		{
+			var userStore = new UserStore<IdentityUser>(new IdentityDbContext<IdentityUser>("UserContext"));
+			var x =  await userStore.FindByIdAsync(id.ToString());
+
+			return x.UserName;
 		}
 	}
 }

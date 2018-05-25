@@ -13,30 +13,25 @@ namespace Spellbook.Services
 {
 	public class UserService
 	{
-		private readonly IdentityDbContext _user = new IdentityDbContext();
+		private readonly UserRepository _user = new UserRepository();
 
-		public String GetUsers()
+		public async Task<string> GetUsersAsync(int id)
 		{
-			var t =  _user.Users.
-			var s = "";
-			foreach(var item in t)
-			{
-				s += t;
-			}
-			return s;
-			//return _user.GetAll().ToList();
+			var x = await _user.GetUserByIdAsync(id);
+			return x;
 		}
 		/*
 		public User GetUserById(int id)
 		{
 			//return _user.FindBy(x => x.UserId == id).Single();
-		}
+		}*/
 
 		public string AddUser(User user)
 		{
-			//return _user.RegisterUser(user);
+			return _user.RegisterUser(user);
 		}
 
+		/*
 		public void DeleteUser(User user)
 		{
 			//_user.Delete(user);
