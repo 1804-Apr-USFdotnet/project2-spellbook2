@@ -15,6 +15,7 @@ namespace Spellbook.Services
             var spellbook = _spellLists.FindBy(sl => sl.SpellListId == id).Single();
 
             SpellListDTO spellList = new SpellListDTO() {
+                SpellListId = spellbook.SpellListId,
                 Name = spellbook.Name,
                 SpellIds = spellbook.Spells.Select(sp => sp.SpellId).ToList()
             };
@@ -39,7 +40,7 @@ namespace Spellbook.Services
         public void EditSpellList(SpellListDTO spellList) {
             var spellBook = _spellLists.FindBy(sl => sl.SpellListId == spellList.SpellListId).Single();
 
-            var spells = _spells.GetAll().Where(sp => spellList.SpellIds.Contains(sp.SpellId)).ToList();
+            var spells = GetAllSpells().Where(sp => spellList.SpellIds.Contains(sp.SpellId)).ToList();
 
             spellBook.Name = spellList.Name;
             spellBook.Spells = spells;

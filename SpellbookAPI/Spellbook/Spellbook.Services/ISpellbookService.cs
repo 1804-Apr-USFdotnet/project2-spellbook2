@@ -11,15 +11,11 @@ namespace Spellbook.Services
 {
     public interface ISpellbookService
     {
-        List<Spell> GetAllSpells();
-
         SpellDTO GetSpellBy(int id);
 
         List<SpellDTO> GetSpellBy(SpellQuery query);
 
         SpellListDTO GetSpellListBy(int id);
-
-        List<SpellListDTO> GetAllSpellList();
 
         void AddSpellList(SpellListDTO spellList);
 

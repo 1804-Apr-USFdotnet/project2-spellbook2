@@ -21,30 +21,30 @@ namespace Spellbook.Repositories
 
         public IEnumerable<Spell> GetAll()
         {
-            IEnumerable<Spell> query = _context.Set<Spell>();
+            IEnumerable<Spell> query = _context.Spells;
             return query;
         }
 
         public IEnumerable<Spell> FindBy(Expression<Func<Spell, bool>> predicate)
         {
 
-            IEnumerable<Spell> query = _context.Set<Spell>().Where(predicate);
+            IEnumerable<Spell> query = _context.Spells.Where(predicate);
             return query;
         }
 
         public virtual void Add(Spell entity)
         {
-            _context.Set<Spell>().Add(entity);
+            _context.Spells.Add(entity);
         }
 
         public virtual void Delete(Spell entity)
         {
-            _context.Set<Spell>().Remove(entity);
+            _context.Spells.Remove(entity);
         }
 
         public virtual void Edit(Spell entity)
         {
-            _context.Entry(entity).State = EntityState.Modified;
+            //_context.Entry(entity).State = EntityState.Modified;
         }
 
         public virtual void Save()
