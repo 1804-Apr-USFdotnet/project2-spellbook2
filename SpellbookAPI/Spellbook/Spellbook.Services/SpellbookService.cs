@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Spellbook.DataContext;
 using Spellbook.Models;
 using Spellbook.Repositories;
 
@@ -10,9 +11,10 @@ namespace Spellbook.Services
         private readonly CharacterRepository _characters;
 
         public SpellbookService() {
-            _spells = new SpellRepository();
-            _spellLists = new SpellListRepository();
-            _characters = new CharacterRepository();
+            SpellbookDbContext context = new SpellbookDbContext();
+            _spells = new SpellRepository(context);
+            _spellLists = new SpellListRepository(context);
+            _characters = new CharacterRepository(context);
         }
     }
 }
