@@ -51,21 +51,15 @@ namespace Spellbook.Controllers
 			return Ok(_userService.AddUser(user));
 		}
 
-		/*
-		[HttpDelete]
-		public IHttpActionResult DeleteAccount(User user)
-		{
-			return Ok();
-		}
-
 		[HttpPost]
+		[Route("~/api/Account/LogIn")]
 		[AllowAnonymous]
 		public IHttpActionResult LogIn(User user)
 		{
 			if (!ModelState.IsValid)
 				return BadRequest();
 
-			return Ok();
+			return Ok(_userService.LogIn(user));
 		}
 
 		[HttpGet]
@@ -73,6 +67,6 @@ namespace Spellbook.Controllers
 		{
 			Request.GetOwinContext().Authentication.SignOut(WebApiConfig.AuthenticationType);
 			return Ok();
-		}*/
+		}
 	}
 }

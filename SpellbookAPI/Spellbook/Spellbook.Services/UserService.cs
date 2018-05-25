@@ -31,6 +31,11 @@ namespace Spellbook.Services
 			return _user.RegisterUser(user);
 		}
 
+		public string LogIn(User user)
+		{
+			return _user.UserLogIn(user);
+		}
+
 		/*
 		public void DeleteUser(User user)
 		{
