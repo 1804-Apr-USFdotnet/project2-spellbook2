@@ -8,6 +8,6 @@ namespace Spellbook.Models
 
         public string Name { get; set; }
 
-        public virtual List<SpellDTO> Spells { get; set; }
+        public List<int> SpellIds { get; set; }
     }
 }

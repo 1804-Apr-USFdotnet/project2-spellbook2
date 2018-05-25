@@ -7,7 +7,9 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
+using Spellbook.App_Start;
 using Spellbook.Models;
+using Autofac.Integration.WebApi;
 
 namespace Spellbook
 {
@@ -16,6 +18,9 @@ namespace Spellbook
         protected void Application_Start()
         {
             AutoMapper.Mapper.Initialize(cfg => cfg.AddProfile<AutoMapperProfile>());
+            GlobalConfiguration.Configuration.DependencyResolver =
+                new AutofacWebApiDependencyResolver(Bootstrapper.RegisterTypes());
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

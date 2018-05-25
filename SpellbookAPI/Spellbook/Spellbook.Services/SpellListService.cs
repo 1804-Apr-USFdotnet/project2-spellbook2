@@ -14,29 +14,36 @@ namespace Spellbook.Services
         public SpellListDTO GetSpellListBy(int id) {
             var spellbook = _spellLists.FindBy(sl => sl.SpellListId == id).Single();
 
-            return Mapper.Map<SpellListDTO>(spellbook);
-        }
+            SpellListDTO spellList = new SpellListDTO() {
+                SpellListId = spellbook.SpellListId,
+                Name = spellbook.Name,
+                SpellIds = spellbook.Spells.Select(sp => sp.SpellId).ToList()
+            };
 
-        public List<SpellListDTO> GetAllSpellList() {
-            var spellbooks = _spellLists.GetAll().ToList();
-
-            return Mapper.Map<List<SpellListDTO>>(spellbooks);
+            return spellList;
         }
 
         public void AddSpellList(SpellListDTO spellList) {
-            var newSpellBook = Mapper.Map<SpellList>(spellList);
+            //automapper couldn't handle this one
+            SpellList newSpellList = new SpellList() {
+                SpellListId = spellList.SpellListId,
+                Name = spellList.Name
+            };
 
-            _spellLists.Add(newSpellBook);
+            newSpellList.Spells = GetAllSpells().Where(sp => spellList.SpellIds.Contains(sp.SpellId)).ToList();
+
+            _spellLists.Add(newSpellList);
 
             _spellLists.Save();
         }
 
-        public void EditSpellList(SpellListDTO newSpellList) {
-            var spellBook = _spellLists.FindBy(sl => sl.SpellListId == newSpellList.SpellListId).Single();
-            var newSpellBook = Mapper.Map<SpellList>(spellBook);
+        public void EditSpellList(SpellListDTO spellList) {
+            var spellBook = _spellLists.FindBy(sl => sl.SpellListId == spellList.SpellListId).Single();
 
-            spellBook.Name = newSpellBook.Name;
-            spellBook.Spells = newSpellBook.Spells;
+            var spells = GetAllSpells().Where(sp => spellList.SpellIds.Contains(sp.SpellId)).ToList();
+
+            spellBook.Name = spellList.Name;
+            spellBook.Spells = spells;
 
             _spellLists.Save();
         }
