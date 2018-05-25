@@ -33,6 +33,9 @@ namespace Spellbook.Services
 
             newSpellList.Spells = spells;
 
+            // todo
+            //newSpellList.Spells = GetAllSpells();
+
             _spellLists.Add(newSpellList);
 
             _spellLists.Save();

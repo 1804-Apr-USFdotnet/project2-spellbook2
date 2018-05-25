@@ -10,8 +10,7 @@ namespace Spellbook.Services
         private readonly SpellListRepository _spellLists;
         private readonly CharacterRepository _characters;
 
-        public SpellbookService() {
-            SpellbookDbContext context = new SpellbookDbContext();
+        public SpellbookService(SpellbookDbContext context) {
             _spells = new SpellRepository(context);
             _spellLists = new SpellListRepository(context);
             _characters = new CharacterRepository(context);
