@@ -12,6 +12,11 @@ namespace Spellbook.Services
 {
     public partial class SpellbookService
     {
+        protected List<Spell> GetAllSpells()
+        {
+            return _spells.GetAll().ToList();
+        }
+
         public SpellDTO GetSpellBy(int id)
         {
             Expression<Func<Spell, bool>> predicate = (x => x.SpellId == id);
