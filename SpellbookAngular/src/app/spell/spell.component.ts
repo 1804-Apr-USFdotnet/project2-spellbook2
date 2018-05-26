@@ -9,12 +9,18 @@ import { SpellService } from '../Services/spell.service';
 })
 export class SpellComponent implements OnInit {
 
+  filter: String = "levels=1"
+
   spells: Spell[]
 
   constructor(private spellSvc: SpellService) { }
 
   ngOnInit() {
     this.getSpells();
+  }
+
+  getFilter(filter) {
+    this.filter=filter;
   }
   
   getSpells(){

@@ -9,11 +9,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { SpellComponent } from './spell/spell.component';
 import { UiModule } from './ui/ui.module';
+import { SpellFilterComponent } from './spell-filter/spell-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SpellComponent
+    SpellComponent,
+    SpellFilterComponent
   ],
   imports: [
     NgbModule.forRoot(),
