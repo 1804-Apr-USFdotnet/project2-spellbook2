@@ -20,10 +20,13 @@ namespace Spellbook.Controllers
             return View();
         }
 
-        public async Task<ActionResult> QuickSearch(string query, string filter)
-        {
+        public async Task<ActionResult> QuickSearch(string school, string classes, string levels) {
+            string baseUri = "http://api.cameronwagstaff.net/api/Spells?";
+
+            string requestString = baseUri + $"school={school}&classes={classes}&levels={levels}";
+
             // todo HARD CODE BIG NONO STOP NOW
-            HttpResponseMessage response = await client.GetAsync($"http://api.cameronwagstaff.net/api/Spells?q={query}&filter={filter}");
+            HttpResponseMessage response = await client.GetAsync(requestString);
 
             if (!response.IsSuccessStatusCode) {
                 return View("Error");
