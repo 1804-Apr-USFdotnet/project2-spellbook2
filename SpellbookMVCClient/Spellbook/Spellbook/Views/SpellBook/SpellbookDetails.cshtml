@@ -1,0 +1,73 @@
+﻿@model Spellbook.Models.SpellList
+
+@{
+    ViewBag.Title = "SpellbookDetails";
+}
+
+<h2>SpellbookDetails</h2>
+
+<div>
+    <h4>SpellList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+    <hr/>
+    <table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            School
+        </th>
+        <th>
+            Level
+        </th>
+        <th>
+            Casting Time
+        </th>
+        <th>
+            Range
+        </th>
+        <th>
+            Classes
+        </th>
+        <th>
+            Duration
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Spells) {
+        <tr>
+            <td>
+            @Html.ActionLink(item.Name, "SpellDetails", "Spell", new {id = item.SpellId}, new {})
+            <td>
+                @Html.DisplayFor(modelItem => item.School)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CastingTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Range)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Classes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duration)
+            </td>
+        </tr>
+    }
+    </table>
+</div>

@@ -11,6 +11,8 @@ namespace Spellbook.Models
 
         public string Name { get; set; }
 
+        public List<int> SpellIds { get; set; }
+
         public List<Spell> Spells { get; set; }
     }
 }
