@@ -1,2 +1,46 @@
 <input #filterChoice placeholder="Your fav filter">
-<button (click)="onSelectFilter(filterChoice.value)">
+<button (click)="onSelectFilter(filterChoice.value)"></button>
+
+<div>
+    <h5>
+        <b>levels: </b>
+    </h5>
+    <div class="btn-group btn-group-toggle">
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.zero"> 0
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.one"> 1
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.two"> 2
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.three"> 3
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.four"> 4
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.five"> 5
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.six"> 6
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.seven"> 7
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.eight"> 8
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.nine"> 9
+        </label>
+    </div>
+</div>
+<div>
+    <button type="submit" class="btn" (click)="onSelectFilter(levels.filter)">Filter</button>
+</div>
+
+<hr>
+<pre>{{levels | json}}</pre>

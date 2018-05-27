@@ -7,6 +7,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SpellFilterComponent implements OnInit {
 
+  levels = {
+    filter: "changed",
+    zero: false,
+    one: false,
+    two: false,
+    three: false,
+    four: false,
+    five: false,
+    six: false,
+    seven: false,
+    eight: false,
+    nine: false
+  };
+
   @Input()
   filter:string;
 

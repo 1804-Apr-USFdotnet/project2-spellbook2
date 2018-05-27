@@ -3,12 +3,17 @@
   <app-spell-filter (selectFilter)="getFilter($event)"></app-spell-filter>
 </div>
 
-
+<h3>
+  <em>Spells:</em>
+  <small>
+    {{spells?.length || '0'}}
+  </small>
+</h3>
 <div id="spells-container" *ngIf="spells">
   <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
     <ngb-panel *ngFor="let s of spells">
       <ng-template ngbPanelTitle>
-        <span>Name: {{s.Name}} </span>
+        <span>{{s.Name}} </span>
       </ng-template>
       <ng-template ngbPanelContent>
         {{s.School}}, {{s.Level}}, {{s.Classes}}
