@@ -19,6 +19,8 @@ namespace Spellbook.Controllers
             return View();
         }
 
+
+
         public async Task<ActionResult> Details(int id) {
             string baseUri = "http://api.cameronwagstaff.net/api/";
 

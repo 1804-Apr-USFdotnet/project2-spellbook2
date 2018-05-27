@@ -14,6 +14,9 @@ namespace Spellbook.Models
 		[Required]
 		public string Name { get; set; }
 
+		[Required]	// add some constraints here later
+		public string Password { get; set; }
+
 		public int? Phone { get; set; }
 
 		[Required]
