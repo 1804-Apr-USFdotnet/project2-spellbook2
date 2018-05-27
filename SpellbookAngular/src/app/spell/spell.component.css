@@ -1,0 +1,15 @@
+.card {
+    margin-bottom: 1rem;
+}
+
+.card-body {
+    border-bottom: 1px solid rgba(0,0,0,0.125);
+}
+
+#spells-container{
+    margin-top: 2rem;
+}
+
+#filter-top{
+    margin-top: 5rem;
+}

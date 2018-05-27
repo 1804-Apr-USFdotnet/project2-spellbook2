@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SpellComponent } from './spell/spell.component';
 
 const appRoutes: Routes = [
-  {path: "spells", component: SpellComponent},
+  {path: "spells", component: SpellComponent}
 ]
 
 @NgModule({
