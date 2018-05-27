@@ -18,4 +18,10 @@ export class SpellService {
       (reason) => console.log(reason)
     );
   }
+
+  searchSpells(filter, onSuccess) {
+    var url = "http://api.cameronwagstaff.net/api/spells?" + filter;
+    var req = this.httpClient.get(url);
+    var promise = req.toPromise();
+  }
 }

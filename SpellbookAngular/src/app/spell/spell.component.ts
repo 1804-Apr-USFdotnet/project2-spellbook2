@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Spell } from '../Models/Spell';
 import { SpellService } from '../Services/spell.service';
 
@@ -8,12 +8,11 @@ import { SpellService } from '../Services/spell.service';
   styleUrls: ['./spell.component.css']
 })
 export class SpellComponent implements OnInit {
-
   filter: String = "levels=1"
 
   spells: Spell[]
 
-  constructor(private spellSvc: SpellService) { }
+  constructor(private cdRef:ChangeDetectorRef, private spellSvc: SpellService) { }
 
   ngOnInit() {
     this.getSpells();
@@ -21,11 +20,17 @@ export class SpellComponent implements OnInit {
 
   getFilter(filter) {
     this.filter=filter;
+    this.updateSpells(filter);
   }
   
   getSpells(){
     this.spellSvc.getAllSpells((response)=> {
       this.spells= response;
+    })
+  }
+  updateSpells(filter){
+    this.spellSvc.searchSpells(filter, (response) => {
+      this.spells = response;
     })
   }
 
