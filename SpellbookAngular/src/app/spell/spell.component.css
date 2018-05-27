@@ -16,5 +16,6 @@
 
 #spell-title {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
 }
