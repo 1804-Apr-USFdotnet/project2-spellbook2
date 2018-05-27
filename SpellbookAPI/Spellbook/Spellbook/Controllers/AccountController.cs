@@ -33,8 +33,18 @@ namespace Spellbook.Controllers
 		}
 
 		[HttpDelete]
+		[Route("~/api/Account/Delete")]
 		public IHttpActionResult DeleteAccount(User user)
 		{
+			if(!ModelState.IsValid)
+				return BadRequest();
+
+			var store = new UserStore<IdentityUser>(new IdentityDbContext<IdentityUser>("UserContext"));
+			var manager = new UserManager<IdentityUser>(store);
+			var account = manager.Users.FirstOrDefault(x => x.UserName == user.Name);
+
+			manager.Delete(account);
+
 			return Ok();
 		}
 
