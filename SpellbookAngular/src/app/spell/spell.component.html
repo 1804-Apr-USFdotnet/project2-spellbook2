@@ -15,7 +15,7 @@
     <ngb-panel *ngFor="let s of spells">
       <ng-template ngbPanelTitle>
         <span style="margin: 0 0 0 0">{{s.Name}} </span> 
-        <span class="">{{s.Classes}}</span>
+        <span class="">{{s.Classes | spellFormat}}</span>
         <span class="pull-right">{{s.Level}}</span>
       </ng-template>
       <ng-template ngbPanelContent>
