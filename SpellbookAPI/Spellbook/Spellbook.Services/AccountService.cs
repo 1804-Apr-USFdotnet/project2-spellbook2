@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -30,6 +29,11 @@ namespace Spellbook.Services
 				return "Account Created";
 
 			return "Something went wrong";
+		}
+
+		public void LogIn(User user)
+		{
+			
 		}
 	}
 }
