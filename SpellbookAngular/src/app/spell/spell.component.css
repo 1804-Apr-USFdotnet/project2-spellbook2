@@ -13,3 +13,8 @@
 #filter-top{
     margin-top: 5rem;
 }
+
+#spell-title {
+    display: flex;
+    justify-content: space-between;
+}

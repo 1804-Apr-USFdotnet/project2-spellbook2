@@ -8,7 +8,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class SpellFilterComponent implements OnInit {
 
   levels = {
-    filter: "changed",
     zero: false,
     one: false,
     two: false,
@@ -21,14 +20,28 @@ export class SpellFilterComponent implements OnInit {
     nine: false
   };
 
+  levelsArr: String[] = [];
+
   @Input()
   filter:string;
 
   @Output()
   selectFilter = new EventEmitter<string>();
 
-  onSelectFilter(filter: string) {
-    this.selectFilter.emit(filter);
+  createFilter(){
+    this.levelsArr.sort();
+    this.selectFilter.emit("levels="+this.levelsArr.toString());
+  }
+
+  activateFilter(event, id){
+    console.log(event);
+    if(event.target.checked)
+    {
+      this.levelsArr = [...this.levelsArr, id];
+    }
+    else {
+      this.levelsArr = this.levelsArr.filter(i => i !== id)
+    }
   }
 
   constructor() { }

@@ -9,14 +9,21 @@
     {{spells?.length || '0'}}
   </small>
 </h3>
+<hr> 
 <div id="spells-container" *ngIf="spells">
   <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
     <ngb-panel *ngFor="let s of spells">
       <ng-template ngbPanelTitle>
-        <span>{{s.Name}} </span>
+        <div id="spell-title">{{s.Name}} </div>
+        <div id="spell-title">{{s.Level}}</div>
       </ng-template>
       <ng-template ngbPanelContent>
-        {{s.School}}, {{s.Level}}, {{s.Classes}}
+        <div id="spell-desc">
+          <b>Components: </b> {{s.Components}}
+        </div>
+        <div id="spell-desc">
+          <b>Duration: </b> {{s.Duration}}
+        </div>
       </ng-template>
     </ngb-panel>
   </ngb-accordion>
