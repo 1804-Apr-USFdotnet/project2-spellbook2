@@ -31,6 +31,8 @@ export class SpellComponent implements OnInit {
   updateSpells(filter){
     this.spellSvc.searchSpells(filter, (response) => {
       this.spells = response;
+      console.log(response[0]);
+      this.filter = "changed";
     })
   }
 
