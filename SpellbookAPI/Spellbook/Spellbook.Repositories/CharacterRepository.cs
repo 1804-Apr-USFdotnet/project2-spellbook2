@@ -42,7 +42,7 @@ namespace Spellbook.Repositories
 
        public virtual void Edit(Character entity)
        {
-           //_context.Entry(entity).State = EntityState.Modified;
+           throw new NotImplementedException();
        }
 
        public virtual void Save()

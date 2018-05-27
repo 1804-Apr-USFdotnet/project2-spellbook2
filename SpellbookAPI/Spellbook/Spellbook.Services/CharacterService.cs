@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
-using AutoMapper;
 using Spellbook.Models;
-using Spellbook.Repositories;
 
 namespace Spellbook.Services
 {
@@ -15,29 +9,61 @@ namespace Spellbook.Services
         public List<CharacterDTO> GetAllCharacters()
         {
             var characters = _characters.GetAll().ToList();
-            return Mapper.Map<List<CharacterDTO>>(characters);
+
+            var characterDtos = new List<CharacterDTO>();
+
+            foreach (Character character in characters) {
+                characterDtos.Add(ToCharacterDto(character));
+            }
+
+            return characterDtos;
         }
 
-        public CharacterDTO GetCharacterBy(int id)
-        {
-            Expression<Func<Character, bool>> predicate = (x => x.CharacterId == id);
-            var character =  _characters.FindBy(predicate).FirstOrDefault();
-            return Mapper.Map<CharacterDTO>(character);
+        public CharacterDTO GetCharacterBy(int id) {
+            var character = _characters.FindBy(ch => ch.CharacterId == id).Single();
+
+            return ToCharacterDto(character);
         }
 
-        public void AddCharacter(Character c)
+        public void AddCharacter(CharacterDTO c)
         {
-            _characters.Add(c);
+            _characters.Add(ToCharacter(c));
+            _characters.Save();
         }
 
-        public void DeleteCharacter(Character c)
-        {
-            _characters.Delete(c);
+        public void EditCharacter(CharacterDTO c) {
+            var character = _characters.FindBy(ch => ch.CharacterId == c.CharacterId).Single();
+
+            character.Name = c.Name;
+            character.Level = c.Level;
+            character.Spellbook = ToSpellList(c.Spellbook);
+
+            _characters.Save();
         }
 
-        public void EditCharacter(Character c)
-        {
-            _characters.Edit(c);
+        public void DeleteCharacter(int id) {
+            var target = _characters.FindBy(ch => ch.CharacterId == id).Single();
+
+            _characters.Delete(target);
+            _characters.Save();
+        }
+
+        private CharacterDTO ToCharacterDto(Character character) {
+            return new CharacterDTO() {
+                CharacterId = character.CharacterId,
+                Name = character.Name,
+                Level = character.Level,
+                Spellbook = ToSpellListDto(character.Spellbook)
+            };
+        }
+
+        private Character ToCharacter(CharacterDTO dto) {
+            return new Character() {
+                CharacterId = dto.CharacterId,
+                Name = dto.Name,
+                Level = dto.Level,
+                Spellbook = ToSpellList(dto.Spellbook)
+            };
         }
     }
 }
