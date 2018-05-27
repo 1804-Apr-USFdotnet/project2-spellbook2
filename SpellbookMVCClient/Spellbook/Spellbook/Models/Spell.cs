@@ -34,8 +34,6 @@ namespace Spellbook.Models {
         public int? Page { get; set; }
 
         public string Description { get; set; }
-
-        public int ClassesAsInt { get; set; }
     }
 
 }

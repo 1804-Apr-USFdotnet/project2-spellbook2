@@ -9,15 +9,20 @@ using Spellbook.Services;
 namespace Spellbook.Controllers
 {
     [EnableCors(origins:"*", headers:"*", methods:"*")]
-    public class SpellsController : ApiController
-    {
-        private readonly SpellbookService _service = new SpellbookService();
+    public class SpellsController : ApiController {
+        private readonly ISpellbookService _service;
 
+        public SpellsController(ISpellbookService service) {
+            _service = service;
+        }
+
+        [AllowAnonymous]
         public IHttpActionResult Get(int id)
         {
             return Ok(_service.GetSpellBy(id));
         }
 
+        [AllowAnonymous]
         public IHttpActionResult Get([FromUri] SpellQuery query)
         {
             try
