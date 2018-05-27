@@ -5,7 +5,7 @@ namespace Spellbook
 	public static class WebApiConfig
 	{
 		public static string AuthenticationType = "AuthCookie";
-		public static string CookieName = "AuthCookie";
+		public static string CookieName = "ApocalypseCookie";
 
 		public static void Register(HttpConfiguration config)
 		{
