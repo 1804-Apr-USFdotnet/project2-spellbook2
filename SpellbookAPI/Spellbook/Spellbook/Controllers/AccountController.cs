@@ -68,7 +68,7 @@ namespace Spellbook.Controllers
 
 			authManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claimsIdentity);
 
-			return Ok("Logged in: " + user.Name);
+			return Ok(new Message { message = "Logged in: " + user.Name});
 
 		}
 
@@ -78,7 +78,7 @@ namespace Spellbook.Controllers
 		public IHttpActionResult LogOut()
 		{
 			Request.GetOwinContext().Authentication.SignOut(WebApiConfig.AuthenticationType);
-			return Ok("Logged Out");
+			return Ok(new Message { message = "Logged Out" });
 		}
 	}
 }
