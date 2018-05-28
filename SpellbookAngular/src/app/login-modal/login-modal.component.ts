@@ -27,13 +27,14 @@ export class LoginModalComponent {
     ) {
       this.createForm();
     }
-    private createForm() {
+    createForm() {
       this.myForm = this.formBuilder.group({
         username: '',
         password: ''
       });
     }
-    private submitForm() {
+
+    submitForm() {
       this.user.Name = this.myForm.get('username').value;
       this.user.Password = this.myForm.get('password').value;
       this.user.Email = 'Dummy@gamil.com';
