@@ -14,9 +14,54 @@ namespace Spellbook.Controllers
 	{
 		private static readonly HttpClient client = new HttpClient();
 
-		[HttpPost]
-		public async Task<ActionResult> LogIn(User user)
+		public ActionResult Login()
 		{
+			return View(viewName: "LogIn");
+		}
+
+		public ActionResult Create()
+		{
+			return View(viewName: "CreateView");
+		}
+
+		[HttpPost]
+		public async Task<ActionResult> Create(User user)
+		{
+			// redirect to home after logging in
+			HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "Account/Create");
+			apiRequest.Content = new ObjectContent<User>(user, new JsonMediaTypeFormatter());
+
+			HttpResponseMessage apiResponse;
+			try
+			{
+				apiResponse = await HttpClient.SendAsync(apiRequest);
+				var x = await apiResponse.Content.ReadAsAsync<Message>();
+				if (x.message == "Username Taken" || x.message == "Something went wrong")
+				{
+					// do something here
+					return View("Error");
+				}
+			}
+			catch
+			{
+				return View("Error");
+			}
+
+			if (!apiResponse.IsSuccessStatusCode)
+			{
+				return View("Error");
+			}
+
+			PassCookiesToClient(apiResponse);
+			return View("Index", "Home");
+		}
+
+		[HttpPost]
+		public async Task<ActionResult> Login(User user)
+		{
+			user.Phone = 123456;
+			user.Email = "test@gmail.com";
+
 			HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "Account/LogIn");
 			apiRequest.Content = new ObjectContent<User>(user, new JsonMediaTypeFormatter());
 
@@ -53,5 +98,10 @@ namespace Spellbook.Controllers
 			return false;
 		}
 
+	}
+
+	public class Message
+	{
+		public string message { get; set; }
 	}
 }

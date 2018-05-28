@@ -16,11 +16,13 @@ namespace Spellbook.Controllers
             _service = service;
         }
 
+        [AllowAnonymous]
         public IHttpActionResult Get(int id)
         {
             return Ok(_service.GetSpellBy(id));
         }
 
+        [AllowAnonymous]
         public IHttpActionResult Get([FromUri] SpellQuery query)
         {
             try

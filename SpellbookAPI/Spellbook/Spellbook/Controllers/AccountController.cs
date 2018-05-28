@@ -9,6 +9,7 @@ using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 
 using Spellbook.Models;
 using Spellbook.Services;
@@ -28,8 +29,7 @@ namespace Spellbook.Controllers
 				return BadRequest();
 
 			var result = _accountService.CreateAccount(user);
-
-			return Ok(result);
+			return Ok(new Message { message = result});
 		}
 
 		[HttpDelete]
@@ -68,7 +68,7 @@ namespace Spellbook.Controllers
 
 			authManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claimsIdentity);
 
-			return Ok("Logged in: " + user.Name);
+			return Ok(new Message { message = "Logged in: " + user.Name});
 
 		}
 
@@ -78,7 +78,7 @@ namespace Spellbook.Controllers
 		public IHttpActionResult LogOut()
 		{
 			Request.GetOwinContext().Authentication.SignOut(WebApiConfig.AuthenticationType);
-			return Ok("Logged Out");
+			return Ok(new Message { message = "Logged Out" });
 		}
 	}
 }
