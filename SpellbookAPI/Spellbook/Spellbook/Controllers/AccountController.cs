@@ -61,14 +61,14 @@ namespace Spellbook.Controllers
 			var account = manager.Users.FirstOrDefault(x => x.UserName == user.Name);
 
 			if (account == null || !manager.CheckPassword(account, user.Password))
-				return BadRequest("Bad Username or Password");
+				return Unauthorized();
 
 			var authManager = Request.GetOwinContext().Authentication;
 			var claimsIdentity = manager.CreateIdentity(account, WebApiConfig.AuthenticationType);
 
 			authManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claimsIdentity);
 
-			return Ok(new Message { message = "Logged in: " + user.Name});
+			return Ok(new Message { name = user.Name, message = "logged in"});
 
 		}
 
