@@ -35,6 +35,12 @@ namespace Spellbook.Controllers
 			try
 			{
 				apiResponse = await HttpClient.SendAsync(apiRequest);
+				var x = await apiResponse.Content.ReadAsAsync<Message>();
+				if (x.message == "Username Taken" || x.message == "Something went wrong")
+				{
+					// do something here
+					return View("Error");
+				}
 			}
 			catch
 			{
@@ -92,5 +98,10 @@ namespace Spellbook.Controllers
 			return false;
 		}
 
+	}
+
+	public class Message
+	{
+		public string message { get; set; }
 	}
 }
