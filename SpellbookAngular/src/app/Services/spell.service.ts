@@ -9,9 +9,9 @@ export class SpellService {
   constructor(private httpClient: HttpClient) { }
 
   getAllSpells(onSuccess) {
-    var url = "http://api.cameronwagstaff.net/api/spells";
-    var req = this.httpClient.get(url);
-    var promise = req.toPromise();
+    const url = 'http://api.cameronwagstaff.net/api/spells';
+    const req = this.httpClient.get(url);
+    const promise = req.toPromise();
 
     promise.then(
       onSuccess,
@@ -20,13 +20,13 @@ export class SpellService {
   }
 
   searchSpells(filter, onSuccess) {
-    var url = "http://api.cameronwagstaff.net/api/spells?" + filter;
-    var req = this.httpClient.get(url);
-    var promise = req.toPromise();
+    const url = 'http://api.cameronwagstaff.net/api/spells?' + filter;
+    const req = this.httpClient.get(url);
+    const promise = req.toPromise();
 
     promise.then(
       onSuccess,
       (reason) => console.log(reason)
-    )
+    );
   }
 }

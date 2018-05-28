@@ -47,53 +47,47 @@ export class SpellFilterComponent implements OnInit {
   classesArr: String[] = [];
 
   @Input()
-  filter:string;
+  filter: string;
 
   @Output()
   selectFilter = new EventEmitter<string>();
 
-  createFilter(){
+  createFilter() {
     this.levelsArr.sort();
     this.classesArr.sort();
     this.schoolsArr.sort();
 
-    let l = "levels="+this.levelsArr.toString();
-    let c = "classes="+this.classesArr.toString();
-    let s = "school="+this.schoolsArr.toString();
+    const l = 'levels=' + this.levelsArr.toString();
+    const c = 'classes=' + this.classesArr.toString();
+    const s = 'school=' + this.schoolsArr.toString();
 
-    this.selectFilter.emit(l+"&"+c+"&"+s);
+    this.selectFilter.emit(l + '&' +  c + '&' + s);
   }
 
-  levelsFilter(event, id){
+  levelsFilter(event, id) {
     console.log(event);
-    if(event.target.checked)
-    {
+    if ( event.target.checked) {
       this.levelsArr = [...this.levelsArr, id];
-    }
-    else {
-      this.levelsArr = this.levelsArr.filter(i => i !== id)
-    }
+    } else {
+      this.levelsArr = this.levelsArr.filter(i => i !== id);
   }
+}
 
-  schoolsFilter(event, id){
+  schoolsFilter(event, id) {
     console.log(event);
-    if(event.target.checked)
-    {
+    if ( event.target.checked) {
       this.schoolsArr = [...this.schoolsArr, id];
-    }
-    else {
-      this.schoolsArr = this.schoolsArr.filter(i => i !== id)
+    } else {
+      this.schoolsArr = this.schoolsArr.filter(i => i !== id);
     }
   }
 
-  classesFilter(event, id){
+  classesFilter(event, id) {
     console.log(event);
-    if(event.target.checked)
-    {
+    if ( event.target.checked) {
       this.classesArr = [...this.classesArr, id];
       console.log(this.classesArr);
-    }
-    else {
+    } else {
       this.classesArr = this.classesArr.filter(i => i !== id);
       console.log(this.classesArr);
     }
