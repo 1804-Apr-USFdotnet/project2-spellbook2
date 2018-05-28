@@ -13,6 +13,7 @@ import { SpellDetailsComponent } from './spell-details/spell-details.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SpellFormatPipe } from './spell-format.pipe';
+import { SpellbookComponent } from './spellbook/spellbook.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SpellFormatPipe } from './spell-format.pipe';
     SpellDetailsComponent,
     HeaderComponent,
     FooterComponent,
-    SpellFormatPipe
+    SpellFormatPipe,
+    SpellbookComponent
   ],
   imports: [
     NgbModule.forRoot(),

@@ -22,6 +22,10 @@ namespace Spellbook.Controllers
             return Ok(_service.GetSpellListBy(id));
         }
 
+        public IHttpActionResult Get(int id, [FromUri] string populate) {
+            return Ok(_service.GetPopulatedSpellList(id));
+        }
+
         public void Put([FromBody] SpellListDTO spellList) {
             _service.EditSpellList(spellList);
         }
