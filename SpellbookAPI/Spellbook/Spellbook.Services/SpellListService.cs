@@ -1,4 +1,6 @@
-﻿using Spellbook.Models;
+﻿using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using Spellbook.Models;
 using System.Linq;
 
 namespace Spellbook.Services
@@ -9,6 +11,12 @@ namespace Spellbook.Services
             var spellbook = _spellLists.FindBy(sl => sl.SpellListId == id).Single();
 
             return ToSpellListDto(spellbook);
+        }
+
+        public SpellListDTO GetPopulatedSpellList(int id) {
+            var spellbook = _spellLists.FindBy(sl => sl.SpellListId == id).Single();
+
+            return ToPopulatedSpellListDto(spellbook);
         }
 
         public void AddSpellList(SpellListDTO spellList) {
@@ -59,6 +67,17 @@ namespace Spellbook.Services
                 Name = spellList.Name,
                 SpellIds = spellList.Spells.Select(sp => sp.SpellId).ToList()
             };
+        }
+
+        private SpellListDTO ToPopulatedSpellListDto(SpellList spellList) {
+            var dto = ToSpellListDto(spellList);
+
+            dto.Spells = new List<SpellDTO>();
+            foreach (var dtoSpellId in dto.SpellIds) {
+                dto.Spells.Add(GetSpellBy(dtoSpellId));
+            }
+
+            return dto;
         }
     }
 }
