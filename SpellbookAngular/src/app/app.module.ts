@@ -12,6 +12,7 @@ import { SpellFilterComponent } from './spell-filter/spell-filter.component';
 import { SpellDetailsComponent } from './spell-details/spell-details.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SpellFormatPipe } from './spell-format.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     SpellFilterComponent,
     SpellDetailsComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SpellFormatPipe
   ],
   imports: [
     NgbModule.forRoot(),
