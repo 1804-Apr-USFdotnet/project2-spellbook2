@@ -21,7 +21,7 @@ export class Spell {
 
     Duration: String;
 
-    AtHigherLevel: String; 
+    AtHigherLevel: String;
 
     Concentration: Boolean;
 

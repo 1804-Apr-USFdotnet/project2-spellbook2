@@ -9,9 +9,9 @@ import { SpellService } from '../Services/spell.service';
   encapsulation: ViewEncapsulation.None
 })
 export class SpellComponent implements OnInit {
-  filter: String = "levels=1"
+  filter: String = 'levels=1';
 
-  spells: Spell[]
+  spells: Spell[];
 
   constructor(private spellSvc: SpellService) { }
 
@@ -20,19 +20,18 @@ export class SpellComponent implements OnInit {
   }
 
   getFilter(filter) {
-    this.filter=filter;
+    this.filter = filter;
     this.updateSpells(filter);
   }
-  
-  getSpells(){
-    this.spellSvc.getAllSpells((response)=> {
-      this.spells= response;
-    })
+  getSpells() {
+    this.spellSvc.getAllSpells((response) => {
+      this.spells = response;
+    });
   }
-  updateSpells(filter){
+  updateSpells(filter) {
     this.spellSvc.searchSpells(filter, (response) => {
       this.spells = response;
-    })
+    });
   }
 
 }
