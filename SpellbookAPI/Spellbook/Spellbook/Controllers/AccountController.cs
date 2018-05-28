@@ -28,8 +28,9 @@ namespace Spellbook.Controllers
 				return BadRequest();
 
 			var result = _accountService.CreateAccount(user);
+			string x = "{" + "message" + ": " + result + "}";
 
-			return Ok(result);
+			return Ok(x);
 		}
 
 		[HttpDelete]

@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<h2>Log In</h2>
+
+@using (Html.BeginForm("LogIn", "Account", FormMethod.Post, new { @class = "form-group" }))
+{
+    @Html.TextBox("Name", null);
+    @Html.Password("Password", null);
+    <input type="submit" value="Log In" class="btn btn-primary"/>
+
+    @Html.ActionLink("New User","Create", "Account", null, new { @class = "nav-item nav-link" })
+}

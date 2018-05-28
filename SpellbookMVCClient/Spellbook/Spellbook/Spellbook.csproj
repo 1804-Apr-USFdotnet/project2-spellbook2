@@ -246,6 +246,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Spell\SpellDetails.cshtml" />
     <Content Include="Views\SpellBook\SpellbookDetails.cshtml" />
+    <Content Include="Views\Account\LogIn.cshtml" />
+    <Content Include="Views\Account\CreateView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
