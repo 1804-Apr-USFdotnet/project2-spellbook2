@@ -19,7 +19,6 @@ namespace Spellbook.Models
 
 		public int? Phone { get; set; }
 
-		[Required]
 		public string Email { get; set; }
 	}
 }
