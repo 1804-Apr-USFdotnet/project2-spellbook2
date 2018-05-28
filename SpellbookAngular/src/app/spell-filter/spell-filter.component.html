@@ -37,38 +37,38 @@
 </div>
 
 <div>
-        <h5>
-            <b>classes: </b>
-        </h5>
-        <div class="btn-group btn-group-toggle">
-            <label class="btn-primary" ngbButtonLabel>
-                <input type="checkbox" ngbButton [(ngModel)]="classes.Bard" (click)="classesFilter($event, 'Bard')"> Bard
-            </label>
-            <label class="btn-primary" ngbButtonLabel>
-                <input type="checkbox" ngbButton [(ngModel)]="classes.Cleric" (click)="classesFilter($event, 'Cleric')"> Cleric
-            </label>
-            <label class="btn-primary" ngbButtonLabel>
-                <input type="checkbox" ngbButton [(ngModel)]="classes.Druid" (click)="classesFilter($event, 'Druid')"> Druid
-            </label>
-            <label class="btn-primary" ngbButtonLabel>
-                <input type="checkbox" ngbButton [(ngModel)]="classes.Paladin" (click)="classesFilter($event, 'Paladin')"> Paladin
-            </label>
-            <label class="btn-primary" ngbButtonLabel>
-                <input type="checkbox" ngbButton [(ngModel)]="classes.Ranger" (click)="classesFilter($event, 'Ranger')"> Ranger
-            </label>
-            <label class="btn-primary" ngbButtonLabel>
-                <input type="checkbox" ngbButton [(ngModel)]="classes.Sorcerer" (click)="classesFilter($event, 'Sorcerer')"> Sorcerer
-            </label>
-            <label class="btn-primary" ngbButtonLabel>
-                <input type="checkbox" ngbButton [(ngModel)]="classes.Warlock" (click)="classesFilter($event, 'Warlock')"> Warlock
-            </label>
-            <label class="btn-primary" ngbButtonLabel>
-                <input type="checkbox" ngbButton [(ngModel)]="classes.Wizard" (click)="classesFilter($event, 'Wizard')"> Wizard
-            </label>
-        </div>
+    <h5>
+        <b>classes: </b>
+    </h5>
+    <div class="btn-group btn-group-toggle">
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="classes.Bard" (click)="classesFilter($event, 'Bard')"> Bard
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="classes.Cleric" (click)="classesFilter($event, 'Cleric')"> Cleric
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="classes.Druid" (click)="classesFilter($event, 'Druid')"> Druid
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="classes.Paladin" (click)="classesFilter($event, 'Paladin')"> Paladin
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="classes.Ranger" (click)="classesFilter($event, 'Ranger')"> Ranger
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="classes.Sorcerer" (click)="classesFilter($event, 'Sorcerer')"> Sorcerer
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="classes.Warlock" (click)="classesFilter($event, 'Warlock')"> Warlock
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="classes.Wizard" (click)="classesFilter($event, 'Wizard')"> Wizard
+        </label>
     </div>
+</div>
 
 
 <div class="filter-btn">
-        <button type="submit" class="btn" (click)="createFilter()">Filter</button>
+    <button type="submit" class="btn" (click)="createFilter()">Filter</button>
 </div>

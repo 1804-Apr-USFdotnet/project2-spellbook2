@@ -31,6 +31,17 @@ export class SpellFilterComponent implements OnInit {
     Wizard: false
   };
 
+  schools = {
+    Abjuration: false,
+    Conjuration: false,
+    Divination: false,
+    Enchantment: false,
+    Evocation: false,
+    Illusion: false,
+    Necromancy: false,
+    Transmutation: false
+  };
+
   levelsArr: String[] = [];
   schoolsArr: String[] = [];
   classesArr: String[] = [];
