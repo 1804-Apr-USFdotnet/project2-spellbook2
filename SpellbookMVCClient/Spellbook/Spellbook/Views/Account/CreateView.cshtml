@@ -1,4 +1,4 @@
-﻿
+﻿@model Spellbook.Models.User
 @{
     ViewBag.Title = "CreateView";
 }
@@ -7,9 +7,16 @@
 
 @using (Html.BeginForm("Create", "Account", FormMethod.Post, new { @class = "form-group" }))
 {
-    @Html.TextBox("Name", null); <br>
-    @Html.Password("Password", null);<br>
-    @Html.TextBox("Email", null);<br>
-    @Html.TextBox("Phone", null);<br>
+    <p>Username </p>@Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })<br />
+    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+    <p>Password </p>@Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })<br>
+    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+    <p>Email </p>@Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })<br>
+    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+
+    <p>Phone (optional) </p>@Html.TextBoxFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })<br>
+    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
     <input type="submit" value="Log In" class="btn btn-primary" />
-}
+}   

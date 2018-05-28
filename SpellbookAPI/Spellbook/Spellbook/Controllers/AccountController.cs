@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
@@ -16,6 +17,7 @@ using Spellbook.Services;
 
 namespace Spellbook.Controllers
 {
+	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class AccountController : ApiController
 	{
 		private readonly AccountService _accountService = new AccountService();
@@ -61,14 +63,14 @@ namespace Spellbook.Controllers
 			var account = manager.Users.FirstOrDefault(x => x.UserName == user.Name);
 
 			if (account == null || !manager.CheckPassword(account, user.Password))
-				return BadRequest("Bad Username or Password");
+				return Unauthorized();
 
 			var authManager = Request.GetOwinContext().Authentication;
 			var claimsIdentity = manager.CreateIdentity(account, WebApiConfig.AuthenticationType);
 
 			authManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claimsIdentity);
 
-			return Ok(new Message { message = "Logged in: " + user.Name});
+			return Ok(new Message { name = user.Name, message = "logged in"});
 
 		}
 
