@@ -1,0 +1,40 @@
+<div>
+    <h5>
+        <b>levels: </b>
+    </h5>
+    <div class="btn-group btn-group-toggle">
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.zero" (click)="activateFilter($event, 0)"> 0
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.one" (click)="activateFilter($event, 1)"> 1
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.two" (click)="activateFilter($event, 2)"> 2
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.three" (click)="activateFilter($event, 3)"> 3
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.four" (click)="activateFilter($event, 4)"> 4
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.five" (click)="activateFilter($event, 5)"> 5
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.six" (click)="activateFilter($event, 6)"> 6
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.seven" (click)="activateFilter($event, 7)"> 7
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.eight" (click)="activateFilter($event, 8)"> 8
+        </label>
+        <label class="btn-primary" ngbButtonLabel>
+            <input type="checkbox" ngbButton [(ngModel)]="levels.nine" (click)="activateFilter($event, 9)"> 9
+        </label>
+    </div>
+</div>
+<div class="filter-btn">
+        <button type="submit" class="btn" (click)="createFilter()">Filter</button>
+</div>

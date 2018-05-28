@@ -1,0 +1,34 @@
+<div id="filter-top">
+  {{filter}}
+  <app-spell-filter (selectFilter)="getFilter($event)"></app-spell-filter>
+</div>
+
+<h3>
+  <em>Spells:</em>
+  <small>
+    {{spells?.length || '0'}}
+  </small>
+</h3>
+<hr> 
+<div id="spells-container" *ngIf="spells">
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel *ngFor="let s of spells">
+      <ng-template ngbPanelTitle>
+        <span style="margin: 0 0 0 0">{{s.Name}} </span> 
+        <span class="">{{s.Classes}}</span>
+        <span class="pull-right">{{s.Level}}</span>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div id="spell-desc">
+          <b>Components: </b> {{s.Components}}
+        </div>
+        <div id="spell-desc">
+          <b>Duration: </b> {{s.Duration}}
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+<div *ngIf="!spells">
+  <h4>No spells 😞</h4>
+</div>
