@@ -9,6 +9,7 @@ using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 
 using Spellbook.Models;
 using Spellbook.Services;
@@ -28,9 +29,7 @@ namespace Spellbook.Controllers
 				return BadRequest();
 
 			var result = _accountService.CreateAccount(user);
-			string x = "{" + "message" + ": " + result + "}";
-
-			return Ok(x);
+			return Ok(new Message { message = result});
 		}
 
 		[HttpDelete]
