@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "CreateView";
+}
+
+<h2>CreateView</h2>
+
+@using (Html.BeginForm("Create", "Account", FormMethod.Post, new { @class = "form-group" }))
+{
+    @Html.TextBox("Name", null); <br>
+    @Html.Password("Password", null);<br>
+    @Html.TextBox("Email", null);<br>
+    @Html.TextBox("Phone", null);<br>
+    <input type="submit" value="Log In" class="btn btn-primary" />
+}
