@@ -55,11 +55,13 @@ export class SpellFilterComponent implements OnInit {
   createFilter(){
     this.levelsArr.sort();
     this.classesArr.sort();
+    this.schoolsArr.sort();
 
-    let lev = "levels="+this.levelsArr.toString();
-    let classes = "classes="+this.classesArr.toString();
+    let l = "levels="+this.levelsArr.toString();
+    let c = "classes="+this.classesArr.toString();
+    let s = "school="+this.schoolsArr.toString();
 
-    this.selectFilter.emit(lev+"&"+classes);
+    this.selectFilter.emit(l+"&"+c+"&"+s);
   }
 
   levelsFilter(event, id){

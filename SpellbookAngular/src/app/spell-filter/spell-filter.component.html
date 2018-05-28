@@ -68,6 +68,38 @@
     </div>
 </div>
 
+<div>
+        <h5>
+            <b>schools: </b>
+        </h5>
+        <div class="btn-group btn-group-toggle">
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="schools.Abjuration" (click)="schoolsFilter($event, 'Abjuration')"> Abjuration
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="schools.Conjuration" (click)="schoolsFilter($event, 'Conjuration')"> Conjuration
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="schools.Divination" (click)="schoolsFilter($event, 'Divination')"> Divination
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="schools.Enchantment" (click)="schoolsFilter($event, 'Enchantment')"> Enchantment
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="schools.Evocation" (click)="schoolsFilter($event, 'Evocation')"> Evocation
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="schools.Illusion" (click)="schoolsFilter($event, 'Illusion')"> Illusion
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="schools.Necromancy" (click)="schoolsFilter($event, 'Necromancy')"> Necromancy
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="schools.Transmutation" (click)="schoolsFilter($event, 'Transmutation')"> Transmutation
+            </label>
+        </div>
+    </div>
+
 
 <div class="filter-btn">
     <button type="submit" class="btn" (click)="createFilter()">Filter</button>
