@@ -4,37 +4,71 @@
     </h5>
     <div class="btn-group btn-group-toggle">
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.zero" (click)="activateFilter($event, 0)"> 0
+            <input type="checkbox" ngbButton [(ngModel)]="levels.zero" (click)="levelsFilter($event, 0)"> 0
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.one" (click)="activateFilter($event, 1)"> 1
+            <input type="checkbox" ngbButton [(ngModel)]="levels.one" (click)="levelsFilter($event, 1)"> 1
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.two" (click)="activateFilter($event, 2)"> 2
+            <input type="checkbox" ngbButton [(ngModel)]="levels.two" (click)="levelsFilter($event, 2)"> 2
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.three" (click)="activateFilter($event, 3)"> 3
+            <input type="checkbox" ngbButton [(ngModel)]="levels.three" (click)="levelsFilter($event, 3)"> 3
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.four" (click)="activateFilter($event, 4)"> 4
+            <input type="checkbox" ngbButton [(ngModel)]="levels.four" (click)="levelsFilter($event, 4)"> 4
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.five" (click)="activateFilter($event, 5)"> 5
+            <input type="checkbox" ngbButton [(ngModel)]="levels.five" (click)="levelsFilter($event, 5)"> 5
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.six" (click)="activateFilter($event, 6)"> 6
+            <input type="checkbox" ngbButton [(ngModel)]="levels.six" (click)="levelsFilter($event, 6)"> 6
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.seven" (click)="activateFilter($event, 7)"> 7
+            <input type="checkbox" ngbButton [(ngModel)]="levels.seven" (click)="levelsFilter($event, 7)"> 7
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.eight" (click)="activateFilter($event, 8)"> 8
+            <input type="checkbox" ngbButton [(ngModel)]="levels.eight" (click)="levelsFilter($event, 8)"> 8
         </label>
         <label class="btn-primary" ngbButtonLabel>
-            <input type="checkbox" ngbButton [(ngModel)]="levels.nine" (click)="activateFilter($event, 9)"> 9
+            <input type="checkbox" ngbButton [(ngModel)]="levels.nine" (click)="levelsFilter($event, 9)"> 9
         </label>
     </div>
 </div>
+
+<div>
+        <h5>
+            <b>classes: </b>
+        </h5>
+        <div class="btn-group btn-group-toggle">
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="classes.Bard" (click)="classesFilter($event, 'Bard')"> Bard
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="classes.Cleric" (click)="classesFilter($event, 'Cleric')"> Cleric
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="classes.Druid" (click)="classesFilter($event, 'Druid')"> Druid
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="classes.Paladin" (click)="classesFilter($event, 'Paladin')"> Paladin
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="classes.Ranger" (click)="classesFilter($event, 'Ranger')"> Ranger
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="classes.Sorcerer" (click)="classesFilter($event, 'Sorcerer')"> Sorcerer
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="classes.Warlock" (click)="classesFilter($event, 'Warlock')"> Warlock
+            </label>
+            <label class="btn-primary" ngbButtonLabel>
+                <input type="checkbox" ngbButton [(ngModel)]="classes.Wizard" (click)="classesFilter($event, 'Wizard')"> Wizard
+            </label>
+        </div>
+    </div>
+
+
 <div class="filter-btn">
         <button type="submit" class="btn" (click)="createFilter()">Filter</button>
 </div>

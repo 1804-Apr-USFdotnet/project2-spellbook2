@@ -20,7 +20,20 @@ export class SpellFilterComponent implements OnInit {
     nine: false
   };
 
+  classes = {
+    Bard: false,
+    Cleric: false,
+    Druid: false,
+    Paladin: false,
+    Ranger: false,
+    Sorcerer: false,
+    Warlock: false,
+    Wizard: false
+  };
+
   levelsArr: String[] = [];
+  schoolsArr: String[] = [];
+  classesArr: String[] = [];
 
   @Input()
   filter:string;
@@ -30,10 +43,15 @@ export class SpellFilterComponent implements OnInit {
 
   createFilter(){
     this.levelsArr.sort();
-    this.selectFilter.emit("levels="+this.levelsArr.toString());
+    this.classesArr.sort();
+
+    let lev = "levels="+this.levelsArr.toString();
+    let classes = "classes="+this.classesArr.toString();
+
+    this.selectFilter.emit(lev+"&"+classes);
   }
 
-  activateFilter(event, id){
+  levelsFilter(event, id){
     console.log(event);
     if(event.target.checked)
     {
@@ -41,6 +59,30 @@ export class SpellFilterComponent implements OnInit {
     }
     else {
       this.levelsArr = this.levelsArr.filter(i => i !== id)
+    }
+  }
+
+  schoolsFilter(event, id){
+    console.log(event);
+    if(event.target.checked)
+    {
+      this.schoolsArr = [...this.schoolsArr, id];
+    }
+    else {
+      this.schoolsArr = this.schoolsArr.filter(i => i !== id)
+    }
+  }
+
+  classesFilter(event, id){
+    console.log(event);
+    if(event.target.checked)
+    {
+      this.classesArr = [...this.classesArr, id];
+      console.log(this.classesArr);
+    }
+    else {
+      this.classesArr = this.classesArr.filter(i => i !== id);
+      console.log(this.classesArr);
     }
   }
 
