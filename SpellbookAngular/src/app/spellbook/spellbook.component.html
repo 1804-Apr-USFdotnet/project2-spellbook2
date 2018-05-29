@@ -1,4 +1,15 @@
-<div class='spellbook-top'>
+<div class='spellbook-top' *ngIf='spellBook'>
+  it exists
+</div>
+
+<div class='spellbook-top' *ngIf='!spellBook'>
+  Unauthorized. Please Sign In.
+  <div class='row'>
+    <a class='btn btn-dark' href='/'>Home</a>
+  </div>
+</div>
+
+<div>
   {{spellBook.Name}}
 </div>
 

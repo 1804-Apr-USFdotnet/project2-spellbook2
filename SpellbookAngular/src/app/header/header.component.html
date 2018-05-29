@@ -7,22 +7,11 @@
       <a class="nav-item nav-link" href="/spellbook">Spellbook</a>
     </div>
   </div>
-
-  <div class="pull-right" *ngIf="loggedin">
-    <button (click)="LogOut()">Log Out</button>
-  </div>
-
-  <div *ngIf="!loggedin">
-    <div class="pull-right">
-      <button (click)="openLoginModal()">Login</button>
-    </div>
-
-    <div class="pull-right">
-      <button (click)="openCreateModal()">New User</button>
+  <div>
+    <div class='text-right'>
+      <button class="btn-sp btn btn-dark p2" (click)="LogOut()">Log Out</button>
+      <button class='btn-sp btn btn-dark p2' (click)="openLoginModal()">Login</button>
+      <button class='btn-sp btn btn-dark p2' (click)="openCreateModal()">New User</button>
     </div>
   </div>
-
-
-
-
 </nav>

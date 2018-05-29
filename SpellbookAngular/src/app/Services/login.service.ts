@@ -50,14 +50,14 @@ export class LoginService {
     );
   }
 
-    LogOut( onSuccess) {
+    LogOut( onSuccess, onFailure ) {
     const url = 'http://api.cameronwagstaff.net/api/Account/LogOut';
     const req = this.httpClient.get( url );
     const promise = req.toPromise();
 
     promise.then(
       onSuccess,
-      (reason) => console.log(reason)
+      onFailure
     );
   }
 }
