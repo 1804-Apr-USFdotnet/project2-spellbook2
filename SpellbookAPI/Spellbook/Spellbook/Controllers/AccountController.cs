@@ -17,7 +17,6 @@ using Spellbook.Services;
 
 namespace Spellbook.Controllers
 {
-	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class AccountController : ApiController
 	{
 		private readonly AccountService _accountService = new AccountService();
@@ -31,6 +30,9 @@ namespace Spellbook.Controllers
 				return BadRequest();
 
 			var result = _accountService.CreateAccount(user);
+			if ( result == "Username Taken" || result == "Something went wrong")
+				return BadRequest(result);
+
 			return Ok(new Message { message = result});
 		}
 

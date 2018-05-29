@@ -7,7 +7,6 @@ using System.Web.Http.Cors;
 
 namespace Spellbook.Controllers
 {
-	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class HomeController : Controller
 	{
 		public ActionResult Index()

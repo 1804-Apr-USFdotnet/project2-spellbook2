@@ -39,6 +39,7 @@ namespace Spellbook.Controllers
 				if (x.message == "Username Taken" || x.message == "Something went wrong")
 				{
 					// do something here
+					ViewBag.Message = "Username Already Taken";
 					return View(viewName: "CreateView");
 				}
 			}

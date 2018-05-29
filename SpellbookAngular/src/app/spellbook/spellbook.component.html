@@ -1,0 +1,49 @@
+
+
+<div>
+  {{spellBook.Name}}
+</div>
+
+<div id="spells-container" *ngIf="spellBook.Spells">
+  <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ngb-panel *ngFor="let s of spellBook.Spells">
+      <ng-template class="d-flex justify-content-around" ngbPanelTitle>
+        <div class="d-flex justify-content-between">
+          <div class="p2">{{s.Name}}</div>
+          <div class="p2">{{s.Classes | spellFormat}}</div>
+          <div class="p2">{{s.School}}</div>
+          <div class="p2">{{s.Level}}</div>
+        </div>
+      </ng-template>
+      <ng-template ngbPanelContent>
+        <div id="spell-desc">
+          <b>Components: </b> {{s.Components}}
+        </div>
+        <div id="spell-desc">
+          <b>Duration: </b> {{s.Duration}}
+        </div>
+        <div>
+          <b>Ritual: </b> {{s.Ritual}}
+        </div>
+        <div>
+          <b>CastingTime: </b> {{s.CastingTime}}
+        </div>
+        <div>
+          <b>Range: </b> {{s.Range}}
+        </div>
+        <div>
+          <b>Concentration: </b> {{s.Concentration}}
+        </div>
+        <div>
+          <b>AtHigherLevel </b> {{s.AtHigherLevel}}
+        </div>
+        <div>
+          <b>Description: </b> {{s.Description}}
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+<div *ngIf="!spellBook.Spells">
+  <h4>No spells 😞</h4>
+</div>

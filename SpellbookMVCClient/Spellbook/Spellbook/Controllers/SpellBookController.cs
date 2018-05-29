@@ -17,7 +17,7 @@ namespace Spellbook.Controllers
         public async Task<ActionResult> SpellbookDetails(int id) {
             string baseUri = "http://api.cameronwagstaff.net/api/";
 
-            string requestString = baseUri + $"SpellBooks/{id}";
+            string requestString = baseUri + $"SpellBooks/{id}?populate";
 
             HttpResponseMessage response = await client.GetAsync(requestString);
 
@@ -27,7 +27,9 @@ namespace Spellbook.Controllers
 
             var content = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<SpellList>(content);
-
+            
+            // not necessary with the populate option for spellbook lookup
+            /*
             result.Spells = new List<Spell>();
             foreach (int spellId in result.SpellIds) {
                 response = await client.GetAsync(baseUri + $"Spells/{spellId}");
@@ -39,7 +41,7 @@ namespace Spellbook.Controllers
                 content = await response.Content.ReadAsStringAsync();
 
                 result.Spells.Add(JsonConvert.DeserializeObject<Spell>(content));
-            }
+            }*/
             
             return View(viewName: "SpellBookDetails", model: result);
         }

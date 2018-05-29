@@ -16,11 +16,12 @@ export class LoginService {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token'
-      })
+      }),
+      withCredentials: true
     };
 
     const url = 'http://api.cameronwagstaff.net/api/Account/Login';
-    const req = this.httpClient.post(url, user, httpOptions );
+    const req = this.httpClient.post(url, user, httpOptions);
     const promise = req.toPromise();
 
     promise.then(

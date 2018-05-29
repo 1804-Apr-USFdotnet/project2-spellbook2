@@ -1,9 +1,12 @@
 ﻿@model Spellbook.Models.User
 @{
-    ViewBag.Title = "CreateView";
+    ViewBag.Title = "Create Account";
+    var t = ViewBag.Message;
 }
 
 <h2>CreateView</h2>
+
+<h6>@t</h6>
 
 @using (Html.BeginForm("Create", "Account", FormMethod.Post, new { @class = "form-group" }))
 {

@@ -7,7 +7,6 @@ using System.Net.Http;
 
 namespace Spellbook.Controllers
 {
-	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class CharacterController : ApiController
 	{
 		private readonly ISpellbookService _characters;

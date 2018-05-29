@@ -12,7 +12,6 @@ using Spellbook.Services;
 
 namespace Spellbook.Controllers
 {
-	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class SpellBooksController : ApiController {
 		private readonly ISpellbookService _service;
 
@@ -24,9 +23,13 @@ namespace Spellbook.Controllers
 			return Ok(_service.GetSpellListBy(id));
 		}
 
-		public void Put([FromBody] SpellListDTO spellList) {
-			_service.EditSpellList(spellList);
-		}
+        public IHttpActionResult Get(int id, [FromUri] string populate) {
+            return Ok(_service.GetPopulatedSpellList(id));
+        }
+
+        public void Put([FromBody] SpellListDTO spellList) {
+            _service.EditSpellList(spellList);
+        }
 
 		public void Post([FromBody] SpellListDTO spellList) {
 			_service.AddSpellList(spellList);

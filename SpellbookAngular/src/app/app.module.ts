@@ -5,7 +5,6 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 import { AppComponent } from './app.component';
 import { SpellComponent } from './spell/spell.component';
@@ -14,6 +13,7 @@ import { SpellDetailsComponent } from './spell-details/spell-details.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SpellFormatPipe } from './spell-format.pipe';
+import { SpellbookComponent } from './spellbook/spellbook.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { CreateUserModalComponent } from './create-user-modal/create-user-modal.component';
 
@@ -27,7 +27,8 @@ import { CreateUserModalComponent } from './create-user-modal/create-user-modal.
     FooterComponent,
     SpellFormatPipe,
     LoginModalComponent,
-    CreateUserModalComponent
+    CreateUserModalComponent,
+    SpellbookComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -38,7 +39,7 @@ import { CreateUserModalComponent } from './create-user-modal/create-user-modal.
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ CookieService ],
+  providers: [ ],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginModalComponent,

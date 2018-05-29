@@ -23,11 +23,13 @@ export class SpellComponent implements OnInit {
     this.filter = filter;
     this.updateSpells(filter);
   }
+
   getSpells() {
     this.spellSvc.getAllSpells((response) => {
       this.spells = response;
     });
   }
+
   updateSpells(filter) {
     this.spellSvc.searchSpells(filter, (response) => {
       this.spells = response;
