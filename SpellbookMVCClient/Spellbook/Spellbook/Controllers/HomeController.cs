@@ -22,18 +22,6 @@ namespace Spellbook.Controllers
             string baseUri = "http://api.cameronwagstaff.net/api/Spells?";
 
             string requestString = baseUri + $"school={school}&classes={classes}&levels={levels}";
-            /*
-            // todo HARD CODE BIG NONO STOP NOW
-            HttpResponseMessage response = await client.GetAsync(requestString);
-
-            if (!response.IsSuccessStatusCode) {
-                return View("Error");
-            }
-
-            var content = await response.Content.ReadAsStringAsync();
-            var results = JsonConvert.DeserializeObject<IEnumerable<Spell>>(content);
-
-            return View(viewName: "Search", model: results);*/
 
             HttpRequestMessage request = CreateRequestToService(HttpMethod.Get, requestString);
 
