@@ -32,7 +32,7 @@ namespace Spellbook.Controllers
 
 			var result = _accountService.CreateAccount(user);
 			if ( result == "Username Taken" || result == "Something went wrong")
-				return BadRequest();
+				return BadRequest(result);
 
 			return Ok(new Message { message = result});
 		}
