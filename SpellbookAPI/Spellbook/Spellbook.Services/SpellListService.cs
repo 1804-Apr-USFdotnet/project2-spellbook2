@@ -54,6 +54,16 @@ namespace Spellbook.Services
         }
 
         private SpellList ToSpellList(SpellListDTO dto) {
+            if (dto.Name == null && dto.Spells == null) {
+                return _spellLists.FindBy(id => id.SpellListId == dto.SpellListId).Single();
+                /*
+                return new SpellList() {
+                    SpellListId = dto.SpellListId,
+                    Name = _spellLists.FindBy(id => id.SpellListId == dto.SpellListId).Single().Name,
+                    Spells = _spellLists.FindBy(id =>)
+                        GetAllSpells().Where(sp => dto.SpellIds.Contains(sp.SpellId)).ToList()
+                };*/
+            }
             return new SpellList() {
                 SpellListId = dto.SpellListId,
                 Name = dto.Name,

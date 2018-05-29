@@ -154,6 +154,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CharacterController.cs" />
     <Compile Include="Controllers\AServiceController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SpellbookController.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Spell.cs" />
     <Compile Include="Models\SpellList.cs" />
     <Compile Include="Models\User.cs" />
@@ -246,6 +248,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Spell\SpellDetails.cshtml" />
     <Content Include="Views\SpellBook\SpellbookDetails.cshtml" />
+    <Content Include="Views\Character\CharacterDetails.cshtml" />
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\Account\CreateView.cshtml" />
   </ItemGroup>

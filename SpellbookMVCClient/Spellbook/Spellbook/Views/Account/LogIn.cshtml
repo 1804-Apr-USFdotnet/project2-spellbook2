@@ -12,7 +12,7 @@
 
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-    <p>Username </p>@Html.TextBoxFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } }) <br />
+    <p>Username </p>@Html.TextBoxFor(model => model.Name, new { autofocus = "autofocus" }) <br />
     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" }) <br />
 
     <p>Password </p>@Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } }); <br />

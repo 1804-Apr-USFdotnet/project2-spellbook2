@@ -10,14 +10,21 @@ using Spellbook.Models;
 
 namespace Spellbook.Controllers
 {
-    public class SpellController : Controller {
+    public class CharacterController : Controller
+    {
         private static readonly HttpClient client = new HttpClient();
+        // GET: Character
+        public ActionResult Index()
+        {
+            return View();
+        }
 
-        // GET: Spell
+
+
         public async Task<ActionResult> Details(int id) {
             string baseUri = "http://api.cameronwagstaff.net/api/";
 
-            string requestString = baseUri + $"Spells/{id}";
+            string requestString = baseUri + $"Character/{id}";
 
             HttpResponseMessage response = await client.GetAsync(requestString);
 
@@ -26,9 +33,9 @@ namespace Spellbook.Controllers
             }
 
             var content = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<Spell>(content);
-            
-            return View(viewName: "SpellDetails", model: result);
+            var result = JsonConvert.DeserializeObject<Character>(content);
+
+            return View(viewName: "CharacterDetails", model: result);
         }
     }
 }

@@ -13,8 +13,18 @@ namespace Spellbook.Controllers
     public class SpellbookController : Controller
     {
         private static readonly HttpClient client = new HttpClient();
-        
-        public async Task<ActionResult> SpellbookDetails(int id) {
+
+        [HttpPost]
+        public ActionResult Add(SpellList newSpellList) {
+            throw new NotImplementedException();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(SpellList modifiedSpellList) {
+            throw new NotImplementedException();
+        }
+
+        public async Task<ActionResult> Details(int id) {
             string baseUri = "http://api.cameronwagstaff.net/api/";
 
             string requestString = baseUri + $"SpellBooks/{id}?populate";

@@ -56,7 +56,7 @@ namespace Spellbook.Tests.Controllers
 		{
 			SpellController controller = new SpellController();
 
-			var x = controller.SpellDetails(1);
+			var x = controller.Details(1);
 
 			Assert.IsNotNull(x);
 		}

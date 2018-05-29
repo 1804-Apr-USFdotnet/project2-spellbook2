@@ -39,7 +39,7 @@ namespace Spellbook.Controllers
 				if (x.message == "Username Taken" || x.message == "Something went wrong")
 				{
 					// do something here
-					ViewBag.Message = "Username Already Taken";
+					ViewBag.Message = x.message;
 					return View(viewName: "CreateView");
 				}
 			}
@@ -71,10 +71,10 @@ namespace Spellbook.Controllers
 			{
 				apiResponse = await HttpClient.SendAsync(apiRequest);
 				var x = await apiResponse.Content.ReadAsAsync<Message>();
-				ViewBag.Message = x.message;
+				ViewBag.User = x.name;
 			}
 			catch
-			{
+			{	
 				return View("Error");
 			}
 

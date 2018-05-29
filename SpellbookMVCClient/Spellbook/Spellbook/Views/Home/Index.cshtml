@@ -7,7 +7,7 @@
     <h1>@ViewBag.Message</h1>
 
     <h2>Quick search</h2>
-
+    <h6>@ViewBag.User</h6>
 
     @using (Html.BeginForm("QuickSearch", "Home", FormMethod.Get, new {@class = "form-group"})) {
         @Html.TextBox("school", null, new {@class = "form-control mr-sm-2", @placeholder = "Search by school"})
