@@ -15,6 +15,8 @@ import { FooterComponent } from './footer/footer.component';
 import { SpellFormatPipe } from './spell-format.pipe';
 import { SpellbookComponent } from './spellbook/spellbook.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
+import { CreateUserModalComponent } from './create-user-modal/create-user-modal.component';
+import { CharactersComponent } from './characters/characters.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +27,10 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     HeaderComponent,
     FooterComponent,
     SpellFormatPipe,
+    LoginModalComponent,
+    CreateUserModalComponent,
     SpellbookComponent,
-    LoginModalComponent
+    CharactersComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -40,7 +44,8 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
   providers: [ ],
   bootstrap: [AppComponent],
   entryComponents: [
-    LoginModalComponent
+    LoginModalComponent,
+    CreateUserModalComponent
   ]
 })
 export class AppModule { }

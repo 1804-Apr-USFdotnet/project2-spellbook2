@@ -8,6 +8,10 @@ export class SpellbookService {
 
   constructor(private client: HttpClient) { }
 
+  getSpellBookId( userId, onSuccess) {
+
+  }
+
   getSpellBook(
     spellBookId: Number,
     onSuccess,
@@ -16,7 +20,7 @@ export class SpellbookService {
 
       const req = this.client.get(url + spellBookId + '?populate', {withCredentials: true});
 
-      var promise = req.toPromise();
+      const promise = req.toPromise();
 
       promise.then(
         onSuccess,

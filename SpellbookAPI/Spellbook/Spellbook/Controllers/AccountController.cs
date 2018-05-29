@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using Microsoft.Owin;
@@ -10,6 +11,7 @@ using Microsoft.Owin.Security;
 using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Host.SystemWeb;
 using Newtonsoft.Json;
 
 using Spellbook.Models;
@@ -81,7 +83,7 @@ namespace Spellbook.Controllers
 		[Route("~/api/Account/Logout")]
 		public IHttpActionResult LogOut()
 		{
-			Request.GetOwinContext().Authentication.SignOut(WebApiConfig.AuthenticationType);
+			Request.GetOwinContext().Authentication.SignOut(HttpContext.Current.GetOwinContext().Authentication.GetAuthenticationTypes().Select(o => o.AuthenticationType).ToArray());
 			return Ok(new Message { message = "Logged Out" });
 		}
 	}

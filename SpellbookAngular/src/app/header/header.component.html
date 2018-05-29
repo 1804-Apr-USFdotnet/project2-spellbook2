@@ -4,11 +4,15 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/">Home</a>
       <a class="nav-item nav-link" href="/spells">Spells</a>
-      <a class="nav-item nav-link" href="/login">Log In</a>
       <a class="nav-item nav-link" href="/spellbook">Spellbook</a>
+      <a class="nav-item nav-link" href="/characters">Characters</a>
     </div>
   </div>
-  <div class="pull-right">
-      <button (click)="openFormModal()">Open Modal</button>
+  <div>
+    <div class='text-right'>
+      <button class="btn-sp btn btn-dark p2" (click)="LogOut()">Log Out</button>
+      <button class='btn-sp btn btn-dark p2' (click)="openLoginModal()">Login</button>
+      <button class='btn-sp btn btn-dark p2' (click)="openCreateModal()">New User</button>
+    </div>
   </div>
 </nav>
