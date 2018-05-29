@@ -10,10 +10,8 @@ using Spellbook.Models;
 
 namespace Spellbook.Controllers
 {
-    public class SpellbookController : Controller
+    public class SpellbookController : AServiceController
     {
-        private static readonly HttpClient client = new HttpClient();
-
         [HttpPost]
         public ActionResult Add(SpellList newSpellList) {
             throw new NotImplementedException();
@@ -29,31 +27,25 @@ namespace Spellbook.Controllers
 
             string requestString = baseUri + $"SpellBooks/{id}?populate";
 
-            HttpResponseMessage response = await client.GetAsync(requestString);
+            HttpRequestMessage request = CreateRequestToService(HttpMethod.Get, requestString);
+
+            HttpResponseMessage response;
+            try {
+                response = await HttpClient.SendAsync(request);
+            }
+            catch {
+                return View("Error");
+            }
 
             if (!response.IsSuccessStatusCode) {
                 return View("Error");
             }
 
-            var content = await response.Content.ReadAsStringAsync();
-            var result = JsonConvert.DeserializeObject<SpellList>(content);
-            
-            // not necessary with the populate option for spellbook lookup
-            /*
-            result.Spells = new List<Spell>();
-            foreach (int spellId in result.SpellIds) {
-                response = await client.GetAsync(baseUri + $"Spells/{spellId}");
+            var contentString = await response.Content.ReadAsStringAsync();
 
-                if (!response.IsSuccessStatusCode) {
-                    return View("Error");
-                }
+            var content = JsonConvert.DeserializeObject<SpellList>(contentString);
 
-                content = await response.Content.ReadAsStringAsync();
-
-                result.Spells.Add(JsonConvert.DeserializeObject<Spell>(content));
-            }*/
-            
-            return View(viewName: "SpellBookDetails", model: result);
+            return View(viewName: "SpellbookDetails", model: content);
         }
     }
 }

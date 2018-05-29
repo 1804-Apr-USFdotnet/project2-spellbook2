@@ -12,7 +12,6 @@ namespace Spellbook.Controllers
 {
 	public class AccountController : AServiceController
 	{
-		private static readonly HttpClient client = new HttpClient();
 
 		public ActionResult Login()
 		{
@@ -54,7 +53,7 @@ namespace Spellbook.Controllers
 			}
 
 			PassCookiesToClient(apiResponse);
-			return View("Index", "Home");
+		    return RedirectToAction("Index", "Home");
 		}
 
 		[HttpPost]

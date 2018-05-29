@@ -11,10 +11,8 @@ using Newtonsoft.Json;
 
 namespace Spellbook.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : AServiceController
     {
-        private static readonly HttpClient client = new HttpClient();
-
         public ActionResult Index()
         {
             return View();
@@ -24,7 +22,7 @@ namespace Spellbook.Controllers
             string baseUri = "http://api.cameronwagstaff.net/api/Spells?";
 
             string requestString = baseUri + $"school={school}&classes={classes}&levels={levels}";
-
+            /*
             // todo HARD CODE BIG NONO STOP NOW
             HttpResponseMessage response = await client.GetAsync(requestString);
 
@@ -35,7 +33,27 @@ namespace Spellbook.Controllers
             var content = await response.Content.ReadAsStringAsync();
             var results = JsonConvert.DeserializeObject<IEnumerable<Spell>>(content);
 
-            return View(viewName: "Search", model: results);
+            return View(viewName: "Search", model: results);*/
+
+            HttpRequestMessage request = CreateRequestToService(HttpMethod.Get, requestString);
+
+            HttpResponseMessage response;
+            try {
+                response = await HttpClient.SendAsync(request);
+            }
+            catch {
+                return View("Error");
+            }
+
+            if (!response.IsSuccessStatusCode) {
+                return View("Error");
+            }
+
+            var contentString = await response.Content.ReadAsStringAsync();
+
+            var content = JsonConvert.DeserializeObject<IEnumerable<Spell>>(contentString);
+
+            return View(viewName: "Search", model: content);
         }
 
         public ActionResult About()

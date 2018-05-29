@@ -251,6 +251,8 @@
     <Content Include="Views\Character\CharacterDetails.cshtml" />
     <Content Include="Views\Account\LogIn.cshtml" />
     <Content Include="Views\Account\CreateView.cshtml" />
+    <Content Include="Views\Character\ListCharacters.cshtml" />
+    <Content Include="Views\Character\CreateCharacter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
