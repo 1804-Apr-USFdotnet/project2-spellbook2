@@ -12,6 +12,7 @@ namespace Spellbook
 		{
 			// Web API configuration and services
 		    var corsPolicy = new EnableCorsAttribute("http://oldspellbook.cameronwagstaff.net,http://spellbook.cameronwagstaff.net,http://localhost:8080,http://localhost:4200", "*", "*");
+		    corsPolicy.SupportsCredentials = true;
 			config.EnableCors(corsPolicy);
 
 			// Web API routes
