@@ -19,7 +19,6 @@ using Spellbook.Services;
 
 namespace Spellbook.Controllers
 {
-	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class AccountController : ApiController
 	{
 		private readonly AccountService _accountService = new AccountService();
