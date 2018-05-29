@@ -4,11 +4,25 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="/">Home</a>
       <a class="nav-item nav-link" href="/spells">Spells</a>
-      <a class="nav-item nav-link" href="/login">Log In</a>
       <a class="nav-item nav-link" href="/spellbook">Spellbook</a>
     </div>
   </div>
-  <div class="pull-right">
-      <button (click)="openFormModal()">Open Modal</button>
+
+  <div class="pull-right" *ngIf="loggedin">
+    <button (click)="LogOut()">Log Out</button>
   </div>
+
+  <div *ngIf="!loggedin">
+    <div class="pull-right">
+      <button (click)="openLoginModal()">Login</button>
+    </div>
+
+    <div class="pull-right">
+      <button (click)="openCreateModal()">New User</button>
+    </div>
+  </div>
+
+
+
+
 </nav>

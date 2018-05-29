@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators, COMPOSITION_BUFFER_MODE } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginService } from '../Services/login.service';
 import { User } from '../Models/User';
@@ -10,11 +10,6 @@ import { User } from '../Models/User';
   styleUrls: ['./login-modal.component.css']
 })
 export class LoginModalComponent {
-
-    @Input()
-    id: number;
-
-    @Output()
     user: User = new User();
 
     myForm: FormGroup;
@@ -28,7 +23,8 @@ export class LoginModalComponent {
     createForm() {
       this.myForm = this.formBuilder.group({
         username: '',
-        password: ''
+        password: '',
+        log: false
       });
     }
     submitForm() {
@@ -37,10 +33,14 @@ export class LoginModalComponent {
       this.user.Email = 'Dummy@gamil.com';
       this.user.Phone = 1234567890;
 
-      this.loginSvc.Login( this.user, (response) => {
-        console.log(response);
-
+      this.loginSvc.Login( this.user, (onSuccess) => {
+        (<FormControl> this.myForm.controls['log']).setValue(true);
+        console.log('success');
+        this.activeModal.close(this.myForm.value);
+      }, (onFailure) => {
+        (<FormControl> this.myForm.controls['log']).setValue(false);
+        console.log('failed.');
+        this.activeModal.close(this.myForm.value);
       });
-      this.activeModal.close(this.myForm.value);
     }
   }
