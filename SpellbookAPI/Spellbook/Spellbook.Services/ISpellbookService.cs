@@ -17,6 +17,8 @@ namespace Spellbook.Services
 
         SpellListDTO GetSpellListBy(int id);
 
+        SpellListDTO GetPopulatedSpellList(int id);
+
         void AddSpellList(SpellListDTO spellList);
 
         void EditSpellList(SpellListDTO newSpellList);

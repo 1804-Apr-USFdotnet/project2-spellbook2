@@ -8,6 +8,7 @@ namespace Spellbook.Models
 {
 	public class Message
 	{
+		public string name { get; set; }
 		public string message { get; set; }
 	}
 }

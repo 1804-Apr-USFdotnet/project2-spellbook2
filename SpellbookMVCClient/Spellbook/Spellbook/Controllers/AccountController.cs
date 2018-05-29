@@ -39,17 +39,18 @@ namespace Spellbook.Controllers
 				if (x.message == "Username Taken" || x.message == "Something went wrong")
 				{
 					// do something here
-					return View("Error");
+					ViewBag.Message = "Username Already Taken";
+					return View(viewName: "CreateView");
 				}
 			}
 			catch
 			{
-				return View("Error");
+				return View(viewName: "CreateView");
 			}
 
 			if (!apiResponse.IsSuccessStatusCode)
 			{
-				return View("Error");
+				return View(viewName: "CreateView");
 			}
 
 			PassCookiesToClient(apiResponse);
@@ -66,6 +67,36 @@ namespace Spellbook.Controllers
 			apiRequest.Content = new ObjectContent<User>(user, new JsonMediaTypeFormatter());
 
 			HttpResponseMessage apiResponse;
+			try
+			{
+				apiResponse = await HttpClient.SendAsync(apiRequest);
+				var x = await apiResponse.Content.ReadAsAsync<Message>();
+				ViewBag.Message = x.message;
+			}
+			catch
+			{
+				return View("Error");
+			}
+
+			if (!apiResponse.IsSuccessStatusCode)
+			{
+				return View("Error");
+			}
+
+			PassCookiesToClient(apiResponse);
+
+			return RedirectToAction("Index", "Home");
+		}
+
+		public async Task<ActionResult> LogOut()
+		{
+			if (!ModelState.IsValid)
+				return View("Error");
+
+			HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "Account/LogOut");
+
+			HttpResponseMessage apiResponse;
+
 			try
 			{
 				apiResponse = await HttpClient.SendAsync(apiRequest);
@@ -102,6 +133,7 @@ namespace Spellbook.Controllers
 
 	public class Message
 	{
+		public string name { get; set; }
 		public string message { get; set; }
 	}
 }

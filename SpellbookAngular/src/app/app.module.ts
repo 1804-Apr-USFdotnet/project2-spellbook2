@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from "@angular/forms";
-import { RouterModule, Routes, PreloadAllModules } from "@angular/router";
-import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -13,6 +13,8 @@ import { SpellDetailsComponent } from './spell-details/spell-details.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SpellFormatPipe } from './spell-format.pipe';
+import { SpellbookComponent } from './spellbook/spellbook.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { SpellFormatPipe } from './spell-format.pipe';
     SpellDetailsComponent,
     HeaderComponent,
     FooterComponent,
-    SpellFormatPipe
+    SpellFormatPipe,
+    SpellbookComponent,
+    LoginModalComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -30,9 +34,13 @@ import { SpellFormatPipe } from './spell-format.pipe';
     FormsModule,
     RouterModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    LoginModalComponent
+  ]
 })
 export class AppModule { }

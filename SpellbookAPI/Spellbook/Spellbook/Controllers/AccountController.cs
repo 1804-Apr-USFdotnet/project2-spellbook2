@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using System.Security.Claims;
@@ -29,6 +30,9 @@ namespace Spellbook.Controllers
 				return BadRequest();
 
 			var result = _accountService.CreateAccount(user);
+			if ( result == "Username Taken" || result == "Something went wrong")
+				return BadRequest(result);
+
 			return Ok(new Message { message = result});
 		}
 
@@ -61,14 +65,14 @@ namespace Spellbook.Controllers
 			var account = manager.Users.FirstOrDefault(x => x.UserName == user.Name);
 
 			if (account == null || !manager.CheckPassword(account, user.Password))
-				return BadRequest("Bad Username or Password");
+				return Unauthorized();
 
 			var authManager = Request.GetOwinContext().Authentication;
 			var claimsIdentity = manager.CreateIdentity(account, WebApiConfig.AuthenticationType);
 
 			authManager.SignIn(new AuthenticationProperties { IsPersistent = true }, claimsIdentity);
 
-			return Ok(new Message { message = "Logged in: " + user.Name});
+			return Ok(new Message { name = user.Name, message = "logged in"});
 
 		}
 

@@ -9,5 +9,7 @@ namespace Spellbook.Models
         public string Name { get; set; }
 
         public List<int> SpellIds { get; set; }
+
+        public List<SpellDTO> Spells { get; set; }
     }
 }
