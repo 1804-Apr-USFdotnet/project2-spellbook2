@@ -8,7 +8,6 @@ using Spellbook.Services;
 
 namespace Spellbook.Controllers
 {
-    [EnableCors(origins:"*", headers:"*", methods:"*")]
     public class SpellsController : ApiController {
         private readonly ISpellbookService _service;
 
