@@ -5,7 +5,6 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './/app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
 
 import { AppComponent } from './app.component';
 import { SpellComponent } from './spell/spell.component';
@@ -38,7 +37,7 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [ CookieService ],
+  providers: [ ],
   bootstrap: [AppComponent],
   entryComponents: [
     LoginModalComponent
