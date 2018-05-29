@@ -12,7 +12,6 @@ using Spellbook.Services;
 
 namespace Spellbook.Controllers
 {
-	[EnableCors(origins: "*", headers: "*", methods: "*")]
 	public class SpellBooksController : ApiController {
 		private readonly ISpellbookService _service;
 
