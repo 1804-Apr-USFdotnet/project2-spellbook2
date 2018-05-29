@@ -1,5 +1,4 @@
 <div class='spellbook-top' *ngIf='spellBook'>
-  it exists
 </div>
 
 <div class='spellbook-top' *ngIf='!spellBook'>
@@ -10,7 +9,9 @@
 </div>
 
 <div>
-  {{spellBook.Name}}
+  <h3>
+    <strong style='font-family: Arial, Helvetica, sans-serif'>{{spellBook.Name}}</strong>
+  </h3>
 </div>
 
 <div id="spells-container" *ngIf="spellBook.Spells">

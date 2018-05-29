@@ -16,6 +16,7 @@ import { SpellFormatPipe } from './spell-format.pipe';
 import { SpellbookComponent } from './spellbook/spellbook.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { CreateUserModalComponent } from './create-user-modal/create-user-modal.component';
+import { CharactersComponent } from './characters/characters.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CreateUserModalComponent } from './create-user-modal/create-user-modal.
     SpellFormatPipe,
     LoginModalComponent,
     CreateUserModalComponent,
-    SpellbookComponent
+    SpellbookComponent,
+    CharactersComponent
   ],
   imports: [
     NgbModule.forRoot(),

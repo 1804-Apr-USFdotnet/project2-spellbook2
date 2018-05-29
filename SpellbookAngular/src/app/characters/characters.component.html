@@ -1,0 +1,21 @@
+<div class="character-top" *ngIf='characters'>
+  <table class='table table-dark'>
+    <tbody>
+      <tr *ngFor='let c of characters'>
+        <td>
+          {{c.Name}}
+        </td>
+        <td>
+          {{c.Level}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class='character-top' *ngIf='!characters'>
+    Unauthorized. Please Sign In.
+    <div class='row'>
+      <a class='btn btn-dark' href='/'>Home</a>
+    </div>
+  </div>
