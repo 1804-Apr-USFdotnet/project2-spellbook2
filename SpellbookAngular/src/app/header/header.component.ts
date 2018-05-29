@@ -40,6 +40,9 @@ export class HeaderComponent implements OnInit {
   LogOut() {
     this.loginSvc.LogOut((response) => {
       this.loggedin = false;
+      console.log('Logged out!');
+    }, (onFailure) => {
+      console.log('Logged-out failed.');
     });
   }
 }
