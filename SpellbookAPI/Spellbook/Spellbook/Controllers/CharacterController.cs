@@ -35,9 +35,10 @@ namespace Spellbook.Controllers
 		{
 			_characters.EditCharacter(c);
 		}
+
 		public void Post( [FromBody] CharacterDTO c)
 		{
-			_characters.AddCharacter(c); 
+			_characters.AddCharacter(c);
 		}
 
 		public void Delete(int id)
