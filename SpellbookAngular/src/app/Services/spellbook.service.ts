@@ -12,9 +12,9 @@ export class SpellbookService {
     spellBookId: Number,
     onSuccess,
     onFail = (reason) => console.log(reason)) {
-      const url = 'api.cameronwagstaff.net/api/SpellBooks/';
+      const url = 'http://api.cameronwagstaff.net/api/SpellBooks/';
 
-      const req = this.client.get(url + spellBookId + '?populate');
+      const req = this.client.get(url + spellBookId + '?populate', {withCredentials: true});
 
       var promise = req.toPromise();
 
