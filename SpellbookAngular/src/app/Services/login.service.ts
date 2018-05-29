@@ -9,7 +9,7 @@ export class LoginService {
 
   constructor(private httpClient: HttpClient) { }
 
-  Login(user, onSuccess) {
+  Login(user, onSuccess, onFailure) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json; charset=utf-8',
@@ -25,11 +25,11 @@ export class LoginService {
 
     promise.then(
       onSuccess,
-      (reason) => console.log(reason)
+      onFailure
     );
   }
 
-  CreateUser( user, onSuccess) {
+  CreateUser( user, onSuccess, onFailure) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json; charset=utf-8',
@@ -41,6 +41,17 @@ export class LoginService {
 
     const url = 'http://api.cameronwagstaff.net/api/Account/Create';
     const req = this.httpClient.post(url, user, httpOptions );
+    const promise = req.toPromise();
+
+    promise.then(
+      onSuccess,
+      (reason) => console.log(reason)
+    );
+  }
+
+    LogOut( onSuccess) {
+    const url = 'http://api.cameronwagstaff.net/api/Account/LogOut';
+    const req = this.httpClient.get( url );
     const promise = req.toPromise();
 
     promise.then(

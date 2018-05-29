@@ -12,12 +12,14 @@
 <div id="spells-container" *ngIf="spells">
   <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
     <ngb-panel *ngFor="let s of spells">
-      <ng-template class="d-flex justify-content-around" ngbPanelTitle>
-        <div class="d-flex justify-content-between">
-          <div class="p2">{{s.Name}}</div>
-          <div class="p2">{{s.Classes | spellFormat}}</div>
-          <div class="p2">{{s.School}}</div>
-          <div class="p2">{{s.Level}}</div>
+      <ng-template class="" ngbPanelTitle>
+        <div class="">
+          <div class="d-flex row">
+            <div class="col-sm-4 p2">{{s.Name}}</div>
+            <div class="col-sm-4 p2">{{s.Classes | spellFormat}}</div>
+            <div class="col-sm-3 p2">{{s.School}}</div>
+            <div class="col-sm-1 p2">{{s.Level}}</div>
+          </div>
         </div>
       </ng-template>
       <ng-template ngbPanelContent>

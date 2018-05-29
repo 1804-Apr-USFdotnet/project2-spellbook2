@@ -11,10 +11,6 @@ import { CookieService } from 'angular2-cookie/services/cookies.service';
   styleUrls: ['./create-user-modal.component.css']
 })
 export class CreateUserModalComponent {
-  @Input()
-  id: number;
-
-  @Output()
   user: User = new User();
 
   myForm: FormGroup;
@@ -31,7 +27,8 @@ export class CreateUserModalComponent {
       username: '',
       password: '',
       email: '',
-      phone: ''
+      phone: '',
+      log: false
     });
   }
 
@@ -41,9 +38,17 @@ export class CreateUserModalComponent {
     this.user.Email = this.myForm.get('email').value;
     this.user.Phone = this.myForm.get('phone').value;
 
-    this.loginSvc.CreateUser( this.user, (response) => {
-      console.log(response);
+    this.loginSvc.CreateUser( this.user, (onSuccess) => {
+      console.log(onSuccess);
+      this.loginSvc.Login( this.user, (s) => {
+        (<FormControl> this.myForm.controls['log']).setValue(true);
+        console.log('success.');
+        this.activeModal.close(this.myForm.value);
+      }, (f) => {
+        console.log('this should never happen.');
+      });
+    }, (onFailure) => {
+      this.activeModal.close(this.myForm.value);
     });
-    this.activeModal.close(this.myForm.value);
   }
 }
